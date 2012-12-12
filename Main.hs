@@ -23,6 +23,10 @@ main = hakyll $ do
     route   idRoute
     compile copyFileCompiler
 
+  match "LICENSE" $ do
+    route   idRoute
+    compile copyFileCompiler
+
   -- generalize?
   match "js/symm/*" $ do
     route   idRoute
