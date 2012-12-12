@@ -1,1 +1,12 @@
 Hacking together a website.
+
+Hakyll: http://jaspervdj.be/hakyll/
+
+Build:
+
+$ ghc --make Main
+$ ./Mail build
+
+Run a server (automatic re-building):
+
+$ Main preview [port]
