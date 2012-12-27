@@ -28,7 +28,7 @@ main = hakyll $ do
     compile copyFileCompiler
 
   -- generalize?
-  match "js/symm/*" $ do
+  match "js/**/*" $ do
     route   idRoute
     compile copyFileCompiler
 
