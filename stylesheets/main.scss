@@ -142,6 +142,45 @@ header#post-header {
   }
   overflow:hidden;
 }
+#mcas-post {
+  path {
+    fill: white;
+    stroke-width: 2px;
+    stroke: #ccc;
+  }
+  .tick {
+    font-family: verdana;
+    font-size: 0.5em;
+  }
+  circle {
+    stroke: rgba(0,0,0, 0.1)
+  }
+  circle.active {
+    fill: hsl(170, 40%, 40%);
+    fill-opacity: 0.8;
+  }
+
+  header h2 {
+
+  }
+  header a {
+    color: #aaa;
+  }
+  header a.active {
+    color: #000;
+    font-weight: bold;
+  }
+  #info {
+    position: absolute;
+    left: 800px;
+  }
+  p {
+    margin-bottom: 0.4em;
+    margin-top: 0;
+  }
+
+}
+
 footer#main {
   font-weight: 600;
   font-size: 11px;
