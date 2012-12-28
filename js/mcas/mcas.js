@@ -1,147 +1,136 @@
 (function() {
-  var curCol, curProf, curSubj, h, path, projection, render_mcas, setup_graph, svg, w, x, _parse_json, _update_info;
-  curSubj = "ELA";
-  curProf = "P+/A %";
-  curCol = 100;
-  projection = d3.geo.albers().origin([-71.5, 42.15]).scale(17000);
+  var circle_width, h, path, perf, perf_keys, projection, render, setup_handlers, setup_keys, subj, subj_keys, update_info, w, year;
+  projection = d3.geo.albers().origin([-71.65, 42.19]).scale(19000);
   path = d3.geo.path().projection(projection);
-  w = 1000;
-  h = 600;
-  x = d3.scale.linear().domain([100, 200]).range([0, w]);
-  svg = d3.select("#chart").append("svg:svg").attr("width", w).attr("height", h);
-  d3.json("../js/mcas/mass-geo.json", function(json) {
-    return svg.selectAll("path").data(json.features).enter().append("svg:path").attr("d", path);
-  });
-  _parse_json = function(json, geom) {
-    var data, datum, header, headers, index, k, key, key_type, parsed, row, v, _base, _base2, _base3, _base4, _i, _len, _len2, _ref;
-    headers = json[0];
-    data = json.slice(1, -6);
-    parsed = {};
-    for (_i = 0, _len = data.length; _i < _len; _i++) {
-      datum = data[_i];
-      key = datum[1];
-      key_type = datum[2];
-      parsed[key] || (parsed[key] = {});
-      (_base = parsed[key])[key_type] || (_base[key_type] = {});
-      (_base2 = parsed[key])["name"] || (_base2["name"] = datum[0]);
-      (_base3 = parsed[key])["code"] || (_base3["code"] = key);
-      (_base4 = parsed[key])["geom"] || (_base4["geom"] = geom[key]);
-      _ref = headers.slice(3);
-      for (row = 0, _len2 = _ref.length; row < _len2; row++) {
-        header = _ref[row];
-        index = row + 3;
-        parsed[key][key_type][header] = datum[index];
-      }
-    }
-    return _.compact((function() {
-      var _results;
-      _results = [];
-      for (k in parsed) {
-        v = parsed[k];
-        _results.push(v["MTH"] && v["SCI"] && v["ELA"] ? v : void 0);
-      }
-      return _results;
-    })());
-  };
-  d3.json("../js/mcas/ma_district_geometry.json", function(geom) {
-    return d3.json("../js/mcas/mcas_bydist_gr10_all.json", function(json) {
-      var data;
-      data = _parse_json(json, geom);
-      setup_graph(data);
-      return render_mcas(curSubj, curProf);
-    });
-  });
-  setup_graph = function(data) {
-    return svg.selectAll("circle.point").data(data).enter().append("svg:circle").attr('class', 'point');
-  };
-  render_mcas = window.render_mcas = function(subj, perf, hue) {
-    if (hue == null) {
-      hue = 100;
-    }
-    return svg.selectAll("circle.point").transition().ease("cubic-in-out").attr('class', 'point').attr('cx', function(d) {
-      var pos;
-      pos = d["geom"];
-      return projection([pos["lng"], pos["lat"]])[0];
-    }).attr('cy', function(d) {
-      var pos;
-      pos = d["geom"];
-      return projection([pos["lng"], pos["lat"]])[1];
-    }).attr('r', function(d) {
-      var p, v;
-      v = d[subj];
-      if (v) {
-        return p = +v[perf] / 5;
+  w = 950;
+  h = 580;
+  window.x = d3.scale.linear().domain([0, 100]).range([20, w / 4]);
+  window.y = d3.scale.linear().domain([0, 100]).range([0, h]);
+  subj = "ELA";
+  perf = "P+/A %";
+  year = "2010";
+  render = function(subj, perf, year) {
+    return d3.selectAll("circle.point").transition().ease("cubic-in-out").attr('r', function(d) {
+      if (d[year] && d[year][subj] && d[year][subj][perf]) {
+        return circle_width(+d[year][subj][perf]);
       } else {
-        throw "Error: value for " + subj + " expected.";
+        return 0;
       }
-    }).attr('fill', function(d) {
-      var p, v;
-      v = d[subj];
-      p = v[perf];
-      return "hsl(" + hue + ", " + p + "%, 40%)";
-    }).attr('fill-opacity', function(d) {
-      var p, v;
-      v = d[subj];
-      p = +v[perf];
-      return p / 100;
     });
   };
-  _update_info = function(d) {
-    var $n, key, out, p, v, _i, _len, _ref;
-    $n = $('#info');
-    out = '<p>' + d.name + '</p>';
-    out += '<p>' + d.code + '</p>';
-    _ref = ['ELA', 'MTH', 'SCI'];
-    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      key = _ref[_i];
-      v = d[key];
-      p = v["P+/A %"];
-      p = p;
-      out += '<p><strong>' + key + ' prof.</strong>: ' + p + '%</p>';
+  circle_width = function(d) {
+    return (Math.sqrt(d) / Math.PI) * 2;
+  };
+  setup_keys = function(svg) {
+    svg.selectAll("circle.key").data(d3.range(0, 100, 20)).enter().append("svg:circle").attr('class', 'key').attr('cx', function(d) {
+      return x(100 - d);
+    }).attr('cy', function(d) {
+      return y(70);
+    }).attr('r', circle_width).attr('fill', '#666');
+    svg.selectAll("line.key").data([20, 80]).enter().append("svg:line").attr('class', 'key').attr('x1', function(d) {
+      return Math.floor(x(d)) + 0.5;
+    }).attr('x2', function(d) {
+      return Math.floor(x(d)) + 0.5;
+    }).attr('y1', y(73)).attr('y2', y(76));
+    return svg.selectAll("text.key").data([[20, "100%"], [80, "20%"]]).enter().append("svg:text").attr('class', 'key').attr('x', function(d) {
+      return x(d[0] - 5);
+    }).attr('y', function(d) {
+      return y(79);
+    }).text(function(d) {
+      return d[1];
+    });
+  };
+  perf_keys = null;
+  subj_keys = null;
+  update_info = function() {
+    var body, data, head;
+    if (!perf_keys) {
+      perf_keys = {};
+      subj_keys = {};
+      $('.performance li').each(function(i, el) {
+        return perf_keys[$(el).data('key')] = $(el).text();
+      });
+      $('.subject li').each(function(i, el) {
+        return subj_keys[$(el).data('key')] = $(el).text();
+      });
     }
-    return $n.html(out);
+    data = $('circle.point.active')[0].__data__;
+    head = $('#info h2');
+    body = $('#info .body');
+    body.html('');
+    if (data[year] && data[year][subj] && data[year][subj][perf]) {
+      body.text("" + data[year][subj][perf] + "% " + perf_keys[perf] + " in " + subj_keys[subj] + " in " + year);
+    } else {
+      body.text("No data for this entry.");
+    }
+    return head.text(data["denorm"]["school"]);
+  };
+  setup_handlers = function(svg) {
+    return $('circle.point').click(function(e) {
+      d3.selectAll('circle.point').classed('active', false);
+      d3.select(e.currentTarget).classed('active', true);
+      return update_info();
+    });
   };
   jQuery(function() {
-    var handleSubj, _render;
-    handleSubj = function(str) {
-      return function(e) {
-        ($('header .subjects a')).removeClass('active');
-        ($(e.currentTarget)).addClass('active');
-        e.preventDefault();
-        curSubj = str;
-        return render_mcas(str, curProf, 100);
-      };
-    };
-    _render = function() {
-      return render_mcas(curSubj, curProf, curCol);
-    };
-    ($('.proficiencies a')).click(function(e) {
-      var $ln;
-      $ln = $(e.target);
-      $ln.siblings().removeClass('active');
-      $ln.addClass('active');
-      curProf = $ln.data('key');
-      curCol = $ln.data('color');
-      e.preventDefault();
-      return _render();
-    });
-    ($('.subjects a')).click(function(e) {
-      var $ln;
-      $ln = $(e.target);
-      $ln.siblings().removeClass('active');
-      $ln.addClass('active');
-      curSubj = $ln.data('key');
-      e.preventDefault();
-      return _render();
-    });
-    ($('.subjects a:first')).addClass('active');
-    ($('.proficiencies a:first')).click();
-    return ($('#chart')).click(function(e) {
-      if (e.target.nodeName === "circle") {
-        _update_info(e.target.__data__);
-        d3.select('#chart').selectAll('.point').classed('active', false);
-        return d3.select(e.target).classed('active', true);
+    var svg;
+    $("li[data-key='" + subj + "']").addClass('active');
+    $("li[data-key='" + perf + "']").addClass('active');
+    $("li[data-key='" + year + "']").addClass('active');
+    $('nav .subject li').click(function(e) {
+      var s;
+      if (s = $(e.currentTarget).data('key')) {
+        $(e.currentTarget).addClass('active').siblings().removeClass('active');
+        subj = s;
+        render(subj, perf, year);
+        return update_info();
       }
+    });
+    $('nav .performance li').click(function(e) {
+      var s;
+      if (s = $(e.currentTarget).data('key')) {
+        $(e.currentTarget).addClass('active').siblings().removeClass('active');
+        perf = s;
+        render(subj, perf, year);
+        return update_info();
+      }
+    });
+    $('nav .year li').click(function(e) {
+      var s;
+      if (s = $(e.currentTarget).data('key')) {
+        $(e.currentTarget).addClass('active').siblings().removeClass('active');
+        year = s;
+        render(subj, perf, year);
+        return update_info();
+      }
+    });
+    svg = d3.select('#chart-1').append("svg:svg").attr("width", w).attr("height", h);
+    setup_keys(svg);
+    return d3.json("../js/mcas/mass-geo.json", function(json) {
+      svg.selectAll("path").data(json.features).enter().append("svg:path").attr("d", path).attr("class", "state");
+      return d3.json("../js/mcas/g10_all.json", function(data) {
+        svg.selectAll("circle.point").data(data).enter().append("svg:circle").attr('class', 'point').attr('cx', function(d) {
+          var ll;
+          if (d["denorm"] && d["denorm"]["geometry"]) {
+            ll = d["denorm"]["geometry"];
+            return projection([ll["lng"], ll["lat"]])[0];
+          } else {
+            return -100;
+          }
+        }).attr('cy', function(d) {
+          var ll;
+          if (d["denorm"] && d["denorm"]["geometry"]) {
+            ll = d["denorm"]["geometry"];
+            return projection([ll["lng"], ll["lat"]])[1];
+          } else {
+            return -100;
+          }
+        }).attr('fill-opacity', function(d) {
+          return 0.6;
+        });
+        render(subj, perf, year);
+        return setup_handlers();
+      });
     });
   });
 }).call(this);

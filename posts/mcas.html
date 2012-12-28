@@ -7,26 +7,74 @@ date: July 25, 2011
 <script type="text/javascript" src="/js/mcas/d3.js"></script>
 <script type="text/javascript" src="/js/mcas/d3.geo.js"></script>
 
-<section id="mcas-post">
-<header>
-  <h1>2009 MCAS Report for Grade 10, by district, for all students</h1>
-    <div class="subjects">
-      <a href="#" data-key="ELA">English</a>,
-      <a href="#" data-key="MTH">Math</a>, and
-      <a href="#" data-key="SCI">Science</a>
+<div id="mcas-post">
+  <section id="map">
+    <nav>
+      <section class="year">
+        <header><h2>Year</h2></header>
+        <ul>
+          <li data-key="2010">2010</li>
+          <li data-key="2009">2009</li>
+          <li data-key="2008">2008</li>
+          <li data-key="2007">2007</li>
+          <li data-key="2006">2006</li>
+          <li data-key="2005">2005</li>
+        </ul>
+      </section>
+      <section class="subject">
+        <header><h2>Subject</h2></header>
+        <ul>
+          <li data-key="ELA">English</li>
+          <li data-key="MTH">Math</li>
+          <li data-key="SCI">Science</li>
+        </ul>
+      </section>
+      <section class="performance">
+        <header><h2>Percentage of students who performed</h2></header>
+        <ul>
+          <li data-key="P+/A %">above proficiency</li>
+          <li data-key="P %">proficient</li>
+          <li data-key="NI %">need improvement</li>
+          <li data-key="W/F %">warning or failing</li>
+        </ul>
+      </section>
+    </nav>
+    <div id="chart-1">
+      <div id="info">
+        <h2></h2>
+        <div class="body">
+        </div>
+      </div>
     </div>
-    <div class="proficiencies">
-      <a href="#" data-key="P+/A %" data-color="120">Advanced/Above proficient</a>,
-      <a href="#" data-key="P %" data-color="100">Proficient</a>,
-      <a href="#" data-key="NI %" data-color="60">Needs Improvement</a>,
-      <a href="#" data-key="W/F %" data-color="350">Warning / Failing</a>
-    </div>
-</header>
-<div id="info">
+  </section>
+  <section>
+    <p>
+      This graph represents MCAS results for grade 10.
+    </p>
+    <p>
+      The Massachusetts state boundary lines are from
+      the <a href="http://www.census.gov/geo/www/cob/bdy_files.html">U.S. Census Bureau</a>.
+      MCAS data from <a href="http://profiles.doe.mass.edu/state_report/mcas.aspx">Massachusetts Department of Elementary and Secondary Education</a>.
+      I gathered geometry data for schools by running each school name
+      through the Google Maps <a href="http://code.google.com/apis/maps/documentation/geocoding/">Geocoding API</a>
+      and checking each result as best I could.
+    </p>
 
-</div>
-<div id="chart">
+    <p>
+      I used the
+      <a href="http://mbostock.github.com/d3/">d3.js</a>
+      Javascript library for SVG rendering and data
+      manipulation.
+    </p>
 
-</div>
+    <p>
+      The source — mostly some poorly-named scripts to download,
+      parse, get geography, and aggregate data, along with
+      Coffeescript to do the drawing — is
+      available on <a href="https://github.com/mjhoy/mcas-graph-experiment">Github</a> if you’re
+      interested (but it is <em>not</em> well organized!)
+    </p>
+
+  </section>
 </div>
 <script type="text/javascript" src="/js/mcas/mcas.js"></script>
