@@ -1,0 +1,4 @@
+#!/bin/sh
+
+./Main build
+rsync -avz _site/* SERVER:/PATH/TO/mjhoy.com/public_html/
