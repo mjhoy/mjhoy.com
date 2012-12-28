@@ -1,6 +1,7 @@
-Hacking together a website.
+Website generator for http://mjhoy.com
+--------------------------------------
 
-Hakyll: http://jaspervdj.be/hakyll/
+Uses Hakyll: http://jaspervdj.be/hakyll/
 
 Build:
 
