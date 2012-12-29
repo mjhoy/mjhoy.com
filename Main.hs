@@ -23,14 +23,14 @@ main = hakyll $ do
     route   idRoute
     compile copyFileCompiler
 
+  match "js/**/*" $ do
+    route   idRoute
+    compile copyFileCompiler
+
   match "LICENSE" $ do
     route   idRoute
     compile copyFileCompiler
 
-  -- generalize?
-  match "js/**/*" $ do
-    route   idRoute
-    compile copyFileCompiler
 
   match "posts/*.html" $ do
     route $ setExtension "html"
