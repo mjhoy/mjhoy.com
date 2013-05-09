@@ -2,7 +2,27 @@
 
 module Main (main) where
 
-import Hakyll
+import Hakyll (
+    hakyll
+  , list
+  , getResourceString
+  , readPageCompiler
+  , addDefaultFields
+  , applySelf
+  , route
+  , idRoute
+  , setExtension
+  , compile
+  , Compiler
+  , Resource
+  , applyTemplateCompiler
+  , templateCompiler
+  , unixFilter
+  , compressCss
+  , pageCompiler
+  , copyFileCompiler
+  , match )
+
 import Control.Arrow ((>>>), arr)
 
 -- Compiler for HTML pages, don't use pandoc
