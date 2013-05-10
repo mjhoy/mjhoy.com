@@ -1,6 +1,6 @@
 *.hi
 *.o
-Main
+blog
 _cache
 _site
 deploy

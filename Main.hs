@@ -4,33 +4,26 @@ module Main (main) where
 
 import Hakyll (
     hakyll
-  , list
   , getResourceString
-  , readPageCompiler
-  , addDefaultFields
-  , applySelf
+  , withItemBody
   , route
+  , defaultContext
   , idRoute
   , setExtension
   , compile
-  , Compiler
-  , Resource
-  , applyTemplateCompiler
+  , loadAndApplyTemplate
   , templateCompiler
   , unixFilter
   , compressCss
-  , pageCompiler
+  , pandocCompiler
+  , pandocCompilerWith
+  , defaultHakyllWriterOptions
+  , relativizeUrls
   , copyFileCompiler
   , match )
 
-import Control.Arrow ((>>>), arr)
-
--- Compiler for HTML pages, don't use pandoc
-htmlCompiler =
-  readPageCompiler >>>
-  addDefaultFields >>>
-  arr applySelf
-
+import Text.Pandoc (def)
+import Text.Pandoc.Options (ReaderOptions(..))
 
 main :: IO ()
 main = hakyll $ do
@@ -51,16 +44,15 @@ main = hakyll $ do
     route   idRoute
     compile copyFileCompiler
 
-
   match "posts/*.html" $ do
     route $ setExtension "html"
-    compile $ htmlCompiler
-          >>> applyTemplateCompiler "templates/default.html"
+    compile $ rawPandocCompiler
+          >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
   match "posts/*" $ do
     route $ setExtension "html"
-    compile $ pageCompiler
-          >>> applyTemplateCompiler "templates/default.html"
+    compile $ pandocCompiler
+          >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
   match "stylesheets/*" $ do
     route $ setExtension "css"
@@ -68,12 +60,17 @@ main = hakyll $ do
 
   match "templates/*" $ compile templateCompiler
 
-  match (list ["index.markdown"]) $ do
+  match "index.markdown" $ do
     route $ setExtension "html"
-    compile $ pageCompiler
-          >>> applyTemplateCompiler "templates/index.html"
+    compile $ pandocCompiler
+          >>= loadAndApplyTemplate "templates/index.html" defaultContext
 
--- Compilers
-sass :: Compiler Resource String
-sass = getResourceString >>> unixFilter "sass" ["-s", "--scss"]
-                         >>> arr compressCss
+sass = getResourceString >>= withItemBody (unixFilter "sass" ["-s", "--scss"])
+                         >>= return . fmap compressCss
+
+rawPandocCompiler = pandocCompilerWith readerOptions defaultHakyllWriterOptions
+  where
+    readerOptions = def
+      {
+        readerParseRaw = True
+      }
