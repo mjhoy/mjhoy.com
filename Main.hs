@@ -32,6 +32,10 @@ main = hakyll $ do
     route   idRoute
     compile copyFileCompiler
 
+  match "images/**/*" $ do
+    route   idRoute
+    compile copyFileCompiler
+
   match "js/*" $ do
     route   idRoute
     compile copyFileCompiler
@@ -54,7 +58,12 @@ main = hakyll $ do
     compile $ pandocCompiler
           >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
-  match "stylesheets/*" $ do
+  match "photo/*" $ do
+    route $ setExtension "html"
+    compile $ pandocCompiler
+          >>= loadAndApplyTemplate "templates/photo.html" defaultContext
+
+  match "stylesheets/main.scss" $ do
     route $ setExtension "css"
     compile sass
 
