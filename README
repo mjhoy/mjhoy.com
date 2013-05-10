@@ -5,9 +5,9 @@ Uses Hakyll: http://jaspervdj.be/hakyll/
 
 Build:
 
-$ ghc --make Main
-$ ./Mail build
+$ ghc --make Main -o blog
+$ ./blog build
 
 Run a server (automatic re-building):
 
-$ Main preview [port]
+$ ./blog preview [port]

@@ -2,5 +2,5 @@
 
 set -e
 
-./Main build
+./blog build
 rsync -avz _site/* SERVER:/PATH/TO/mjhoy.com/public_html/
