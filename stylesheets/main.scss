@@ -77,6 +77,14 @@ section#content {
 }
 section#content.index {
   font-family: $f_sans;
+
+  h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin: 4em 0 0 0;
+  }
 }
 
 section header h1 {
@@ -248,3 +256,5 @@ footer#main {
   padding-top: 1em;
   font-family: $f_sans;
 }
+
+@import 'stylesheets/photo'
