@@ -17,7 +17,7 @@ Of the eight states whose names begin with an _M_, I will pass through three. I
 will touch the shores of all five Great Lakes and wriggle my toes in them. I
 will stop at a hundred libraries and collect a hundred bookmarks.
 
-Or something else will happen. Perhaps the Adirondack will stop me in New York.
+Or something else will happen. Perhaps the Adirondacks will stop me in New York.
 Maybe I’ll keep going until I see the Pacific. Who knows?
 
 I’ve tried to sketch the route on paper. I stopped after filling in the lakes.
