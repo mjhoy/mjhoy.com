@@ -20,8 +20,18 @@ import Hakyll (
   , defaultHakyllWriterOptions
   , relativizeUrls
   , copyFileCompiler
+  , recentFirst
+  , constField
+  , loadAll
+  , renderAtom
+  , FeedConfiguration(..)
+  , create
+  , saveSnapshot
+  , loadAllSnapshots
+  , bodyField
   , match )
 
+import Data.Monoid (mappend)
 import Text.Pandoc (def)
 import Text.Pandoc.Options (ReaderOptions(..))
 
@@ -63,6 +73,12 @@ main = hakyll $ do
     compile $ pandocCompiler
           >>= loadAndApplyTemplate "templates/photo.html" defaultContext
 
+  match "bike/*" $ do
+    route $ setExtension "html"
+    compile $ pandocCompiler
+          >>= saveSnapshot "content"
+          >>= loadAndApplyTemplate "templates/bike.html" defaultContext
+
   match "stylesheets/main.scss" $ do
     route $ setExtension "css"
     compile sass
@@ -78,6 +94,25 @@ main = hakyll $ do
     route $ setExtension "html"
     compile $ pandocCompiler
           >>= loadAndApplyTemplate "templates/index.html" defaultContext
+
+  create ["rss/bike/atom.xml"] $ do
+    route idRoute
+    compile $ do
+      let feedCtx = defaultContext `mappend` bodyField "description"
+
+      posts <- fmap (take 10) . recentFirst =<<
+        loadAllSnapshots "bike/*" "content"
+
+      renderAtom bikeFeedConfig feedCtx posts
+
+bikeFeedConfig :: FeedConfiguration
+bikeFeedConfig= FeedConfiguration
+    { feedTitle       = "Biking 2013 | mjhoy.com"
+    , feedDescription = "Blogging my bike trip from Maine to Minnesota"
+    , feedAuthorName  = "Michael Hoy"
+    , feedAuthorEmail = "michael.john.hoy@gmail.com"
+    , feedRoot        = "http://mjhoy.com"
+    }
 
 sass = getResourceString >>= withItemBody (unixFilter "sass" ["-s", "--scss"])
                          >>= return . fmap compressCss
