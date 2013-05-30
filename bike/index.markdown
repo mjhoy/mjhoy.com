@@ -4,6 +4,9 @@ date: May 15, 2013
 from: Boston
 ---
 
+_This is the first post of the blog, written before my trip had started. It has
+started now.  The latest post is [“Disc Golf”](/bike/disc-golf.html)._
+
 I am leaving New England, headed west. I will take my bicycle, an ordinary
 road bike, outfit it with new tires, lube the chain, load the panniers. I will
 pack an avocado and a jar of peanut butter within easy reach, and pedal for the
