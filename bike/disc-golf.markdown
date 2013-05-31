@@ -1,6 +1,6 @@
 ---
 title: Disc Golf
-from: Licoln, New Hampshire
+from: Lincoln, New Hampshire
 date: May 30, 2013
 ---
 
@@ -12,7 +12,7 @@ date: May 30, 2013
 “It’s not coming back.”
 
 The disc that shot like a bullet from the hand of Michael Jordan made like it
-would bank slighty to the left — all of us felt this intuitively — but instead it
+would bank slightly to the left — all of us felt this intuitively — but instead it
 continued on a straight path and landed thirty yards from hole 1, in a patch of
 trees and mud. According to the group of men playing disc golf at 4pm on
 Memorial Day — Ben, Adam, Chris, and Mike — this was a throw that could have
@@ -74,7 +74,7 @@ get out of the trees, too.
 
 “Nice out!”
 
-Ben has arms that are the size of my head. I wouldn’t be suprised if they
+Ben has arms that are the size of my head. I wouldn’t be surprised if they
 balanced a scale with the gear I am packing on my Nishiki road bicycle, around
 45 pounds.  Including me and my gear, the bike hauls less than 200 pounds — not
 much more than your average American’s weight.
@@ -95,7 +95,7 @@ Of one cemetery I ventured into, at least half of the gravestones had a veteran
 badge with flags flying. I realized many of Ben’s friends I met that day had
 served in the military. Maine is ranked first of states for military
 recruitment per capita. It is also ranked first — by a wide margin — in deaths
-per capita from the war in Afganistan. In the little town of Madison I was
+per capita from the war in Afghanistan. In the little town of Madison I was
 stopped on my way by a Memorial day parade, which, as a parade, to an outsider,
 was a little pathetic. But the cheers for the marching recruits and veterans
 were heartfelt and authentic, a small town supporting its own.
