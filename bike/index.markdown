@@ -5,7 +5,7 @@ from: Boston
 ---
 
 _This is the first post of the blog, written before my trip had started. It has
-started now.  The latest post is [“Disc Golf”](/bike/disc-golf.html)._
+started now.  The latest post is [“Granny Gears”](/bike/granny-gears.html)._
 
 I am leaving New England, headed west. I will take my bicycle, an ordinary
 road bike, outfit it with new tires, lube the chain, load the panniers. I will

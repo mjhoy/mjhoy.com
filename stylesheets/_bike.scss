@@ -3,6 +3,14 @@ $bike_border_color: hsl(10, 10%, 78%);
 $f_serif: "minion-pro", Georgia, serif;
 
 body.bike {
+  pre {
+    margin: 30px 0 30px 40px;
+  }
+  pre,code {
+    font-size: 14px;
+    font-family: "Courier New", Courier, monospace;
+    line-height: 20px;
+  }
   header#post-header h1 {
     margin-top: 1em;
   }
