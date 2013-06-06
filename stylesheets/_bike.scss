@@ -11,6 +11,14 @@ body.bike {
     font-family: "Courier New", Courier, monospace;
     line-height: 20px;
   }
+  blockquote {
+    font-size: 0.88em;
+    line-height: 1.5em;
+    color: #444;
+    border-left: 6px solid #ddd;
+    margin-left: -30px;
+    padding-left: 45px;
+  }
   header#post-header h1 {
     margin-top: 1em;
   }
