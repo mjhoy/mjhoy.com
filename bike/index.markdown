@@ -5,7 +5,7 @@ from: Boston
 ---
 
 _This is the first post of the blog, written before my trip had started. It has
-started now.  The latest post is [“Niagara Falls”](/bike/niagara.html)._
+started now.  The latest post is [“Ohio”](/bike/ohio.html)._
 
 I am leaving New England, headed west. I will take my bicycle, an ordinary
 road bike, outfit it with new tires, lube the chain, load the panniers. I will
