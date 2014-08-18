@@ -20,6 +20,7 @@ import Hakyll (
   , match )
 
 import Bike (bikeRoutes)
+import Journal (journalRoutes)
 import MyCompilers (rawPandocCompiler)
 
 main :: IO ()
@@ -77,6 +78,7 @@ main = hakyll $ do
           >>= loadAndApplyTemplate "templates/index.html" defaultContext
 
   bikeRoutes
+  journalRoutes
 
 sass = getResourceString >>= withItemBody (unixFilter "sass" ["-s", "--scss"])
                          >>= return . fmap compressCss
