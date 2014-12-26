@@ -21,6 +21,7 @@ import Hakyll (
 
 import Bike (bikeRoutes)
 import Journal (journalRoutes)
+import Writings (writingsRoutes)
 import MyCompilers (rawPandocCompiler)
 
 main :: IO ()
@@ -79,6 +80,7 @@ main = hakyll $ do
 
   bikeRoutes
   journalRoutes
+  writingsRoutes
 
 sass = getResourceString >>= withItemBody (unixFilter "sass" ["-s", "--scss"])
                          >>= return . fmap compressCss
