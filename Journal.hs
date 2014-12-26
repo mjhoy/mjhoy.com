@@ -9,9 +9,15 @@ import Hakyll (
   , compile
   , loadAndApplyTemplate
   , pandocCompiler
+  , copyFileCompiler
+  , idRoute
   , match )
 
 journalRoutes = do
+  match "journal/**.png" $ do
+    route idRoute
+    compile copyFileCompiler
+
   match "journal/**" $ do
     route $ setExtension "html"
     compile $ pandocCompiler
