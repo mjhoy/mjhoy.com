@@ -3,9 +3,10 @@ Website generator for http://mjhoy.com
 
 Uses Hakyll: http://jaspervdj.be/hakyll/
 
-Build:
+To install the `blog` executable to the project directory:
 
-$ ghc --make Main -o blog
+$ cd path/to/mjhoy.com/
+$ cabal install --bindir=.
 $ ./blog build
 
 Run a server (automatic re-building):
