@@ -1,6 +1,6 @@
 ---
 title: Symmetry (and higher-order functions)
-date: July 3, 2010 
+date: July 3, 2010
 ---
 
 <script type="text/javascript" src="/js/underscore.js"></script>
@@ -53,7 +53,7 @@ for (i = 0; i &lt; n; i++ ) {
   rect.rotate(60)
 } </pre>
     <p>
-      This code effectively says: “Set <code>i</code> to 0 and <code>n</code> to 3. If <code>i</code> is less 
+      This code effectively says: “Set <code>i</code> to 0 and <code>n</code> to 3. If <code>i</code> is less
       than <code>n</code>, rotate the rectangle,
       and increment <code>i</code>. Repeat the ‘if’.”
     </p>
@@ -99,7 +99,7 @@ var rect3 = paper.rect(0, 0, 10, 10).rotate(120); // Make a rect and rotate 120 
     </p>
 <pre>
 var i, n = 3,
-    lastRect = paper.rect(0, 0, 10, 10), 
+    lastRect = paper.rect(0, 0, 10, 10),
     currentRect;
 
 for (i = 0; i &lt; n; i ++) {
@@ -118,7 +118,7 @@ for (i = 0; i &lt; n; i ++) {
     </p>
 
     <p>
-      Note that the iteration works by updating the variable 
+      Note that the iteration works by updating the variable
       <code>lastRect</code> to point
       to whatever the last rectangle created was, so that, when it loops for the
       next time, it’s copying the <i>new</i> rectangle.
@@ -190,7 +190,7 @@ var iterate = function(obj, n, fn) {
     it does it creates a new object, transforming it.
   </p>
   </div>
-  
+
 </section>
 <section class="container">
   <div class="span-8">
@@ -202,8 +202,8 @@ var iterate = function(obj, n, fn) {
     </div>
     <p>
       It’s possible, then, to describe <i>symmetries</i> of these vector objects
-      with some ease in JavaScript, though certain kinds of operations are much 
-      more simply described as a procedure than others. Translating, like above, is easy. 
+      with some ease in JavaScript, though certain kinds of operations are much
+      more simply described as a procedure than others. Translating, like above, is easy.
       “Pivoting” objects around a point is more difficult: it requires tracking that point
       across function calls and determining its relation to the current
       object with some trig functions.
@@ -242,7 +242,7 @@ var r1 = r.iterate(1, function() {
     </div>
 
     <p>
-      In this implementation of <code>iterate</code> I’m doing something special. It accepts a 
+      In this implementation of <code>iterate</code> I’m doing something special. It accepts a
       number of iterations to perform and a function as its
       arguments. The function is called in the context of the cloned objects, and so I apply the
       transformations to <code>this</code>. The result of <code>iterate</code> I put in a variable
@@ -266,7 +266,7 @@ r2 = r1.iterate(1, function() {
     </div>
     <p>
       This pivots and translates the symmetry group <code>r1</code>
-      as a whole. The “pivoting” is done by a method called <code>rotateAround</code>. 
+      as a whole. The “pivoting” is done by a method called <code>rotateAround</code>.
       The result, which is all four objects, is stored in <code>r2</code>. To finish:
     </p>
 <pre>
@@ -280,12 +280,12 @@ r3 = r2.iterate(4, function() {
     </div>
 
     <p style="margin-top: 1.5em;">
-      You can see my implementation of <code>iterate</code> at 
-      <a href="https://github.com/mjhoy/symmetry-js/blob/master/src/symmetry.raphael.js">Github</a>. 
+      You can see my implementation of <code>iterate</code> at
+      <a href="https://github.com/mjhoy/symmetry-js/blob/master/src/symmetry.raphael.js">Github</a>.
       (There’s also an implementation of <code>rotateAround</code>).
       Note that it’s very
       proof-of-concept and experimental now. There’s currently some bugs when using multiple
-      calls to <code>rotate</code> and <code>rotateAround</code> over iterations. 
+      calls to <code>rotate</code> and <code>rotateAround</code> over iterations.
       If only I knew my trig.
     </p>
   </div>

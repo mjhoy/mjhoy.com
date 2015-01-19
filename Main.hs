@@ -5,6 +5,7 @@ module Main (main) where
 import Hakyll (
     hakyll
   , getResourceString
+  , getResourceBody
   , withItemBody
   , route
   , defaultContext
@@ -49,7 +50,7 @@ main = hakyll $ do
 
   match "posts/*.html" $ do
     route $ setExtension "html"
-    compile $ rawPandocCompiler
+    compile $ getResourceBody
           >>= loadAndApplyTemplate "templates/default.html" defaultContext
 
   match "posts/*" $ do
@@ -84,4 +85,3 @@ main = hakyll $ do
 
 sass = getResourceString >>= withItemBody (unixFilter "sass" ["-s", "--scss"])
                          >>= return . fmap compressCss
-
