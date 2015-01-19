@@ -25,4 +25,4 @@ writingsRoutes = do
   match "writings/**" $ do
     route $ setExtension "html"
     compile $ pandocCompiler
-          >>= loadAndApplyTemplate "templates/journal.html" defaultContext
+          >>= loadAndApplyTemplate "templates/writing.html" defaultContext

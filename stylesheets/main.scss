@@ -178,8 +178,8 @@ header#post-header {
     h2, .body {
       font-size: 0.9em;
     }
-    h2 { 
-      color: #333; 
+    h2 {
+      color: #333;
       margin: 0.4em 0;
     }
     color: #777;
@@ -197,9 +197,9 @@ header#post-header {
       //@include column(3,true);
     }
   }
-  circle.point { 
+  circle.point {
     cursor: pointer;
-    fill: #000; 
+    fill: #000;
     &.active {
       fill: red;
     }
@@ -223,23 +223,23 @@ header#post-header {
       padding-right: 10px;
       float: left;
       text-align: right;
-      h2 { 
-        margin: 0; 
-        font-style: italic; 
+      h2 {
+        margin: 0;
+        font-style: italic;
       }
     }
   }
   nav ul {
     list-style-type: none;
     margin: 0; padding: 0;
-    li { 
+    li {
       color: #aaa;
       padding-right: 2px;
       &:hover {
         color: #000;
       }
       display: inline;
-      cursor: pointer; 
+      cursor: pointer;
       &.active {
         color: #000;
         text-decoration: underline;
@@ -269,10 +269,11 @@ footer#main {
 // Portfolio
 body.portfolio {
   img { max-width: 960px; }
-  .image { 
+  .image {
     border: 1px solid #ddd;
-    a { border: none; } 
+    a { border: none; }
   }
+
   header#main { display: none; }
 
   h2 {
@@ -292,3 +293,4 @@ body.portfolio {
 }
 
 @import 'stylesheets/bike';
+@import 'stylesheets/writing';

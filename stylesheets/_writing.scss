@@ -1,0 +1,19 @@
+#content-writing {
+  header#post-header {
+    text-align: center;
+  }
+  div.figure {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  p {
+    max-width: 700px;
+    margin: 1em auto;
+    padding: 0 1em;
+    font: 19px/27px Georgia;
+  }
+  img {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
