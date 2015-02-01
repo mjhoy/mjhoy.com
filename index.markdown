@@ -6,17 +6,6 @@ title: Home
   I am a [website developer][portfolio] living in Boston, Massachusetts.
 </p>
 
-<p class="intro">
-  This site is updated far less than I’d like it to be. In a perfect world, I’d
-  have a blog post about lazily evaluated AI, only to spiral into digressions
-  about the beauty of various species of mosses and fungi. To tie it together, a
-  paragraph or two about tomatillo salsa. (One can dream.)
-</p>
-
-<p class="intro">
-  If you have ideas, [let me know][source].
-</p>
-
 ### Writing
 
 [A short bike trip in Catalunya][bike2]
