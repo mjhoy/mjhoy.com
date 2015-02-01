@@ -82,7 +82,7 @@ The first thing I notice about Olot is the smog, hanging low over the
 town, punctured by the extinct volcanoes all over the valley.
 
 The second thing I notice, biking into town, is the smell, like
-burning oil. I aske a few people about it. One woman claims that it is
+burning oil. I ask a few people about it. One woman claims that it is
 just moisture from the streams. Another man didn't seem too
 concerned. Olot was a working town, lots of _embutidos_, _jamón_
 factories.
