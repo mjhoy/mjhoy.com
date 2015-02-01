@@ -17,8 +17,11 @@ title: Home
   If you have ideas, [let me know][source].
 </p>
 
-### Current
-[Bike trip][bike]
+### Writing
+
+[A short bike trip in Catalunya][bike2]
+
+[Maine to Minnesota][bike]
 
 ### Code
 
@@ -40,3 +43,4 @@ title: Home
 [portfolio]:portfolio.html
 [source]:https://github.com/mjhoy/mjhoy.com
 [bike]:bike
+[bike2]:writings/misc/catalunya.html
