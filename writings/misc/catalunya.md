@@ -36,10 +36,10 @@ with all of them.
 
 As we talk, a woman sitting a seat in front of us interrupts in
 Catalan. The man explains to me after they talk that she is a concert
-violinist and knew of his son, who was a composer living in
+violinist and knew of his son, who is a composer living in
 California, and apparently well-known in Catalonia.
 
-Eventually, five hours late, I made it to Ripoll.
+Eventually, five hours late, I make it to Ripoll.
 
 ![](/images/barca/10122014-P1200945.jpg)
 
@@ -84,7 +84,7 @@ town, punctured by the extinct volcanoes all over the valley.
 The second thing I notice, biking into town, is the smell, like
 burning oil. I ask a few people about it. One woman claims that it is
 just moisture from the streams. Another man didn't seem too
-concerned. Olot was a working town, lots of _embutidos_, _jamón_
+concerned. Olot is a working town, lots of _embutidos_, _jamón_
 factories.
 
 I meet a bicyclist, Manel, and we go out for coffee. ¿Qué le gusta?
@@ -148,14 +148,14 @@ stoves, scooters, endless tools and odds and ends. This is
 very clean for me, he says. Just last week it was impossible to walk
 in here. I was building a pipe organ for a circus in France.
 
-Dinner was delicious, some kind of cuttlefish risoto. Our conversation
-tended to lapse in and out of English and Spanish. At some point it
-turned to _construcción de iglús_, a favorite topic for Pau, as he
-once was the president of the local igloo builder's
-association. Before I knew it I had agreed to let Pau take me up to
-the mountains in the morning to teach me to build igloos.
+Dinner is delicious, some kind of cuttlefish risoto. Our conversation
+tends to lapse in and out of English and Spanish. At some point it
+turns to _construcción de iglús_, a favorite topic for Pau, as he once
+was the president of the local igloo builder's association. Before I
+know it I have agreed to let Pau take me up to the mountains in the
+morning to teach me to build igloos.
 
-We left at 7 in the morning so we'd have enough light.
+We leave at 7 so that we have enough light.
 
 ![](/images/barca/13122014-P1210106.jpg)
 
@@ -165,18 +165,18 @@ We left at 7 in the morning so we'd have enough light.
 
 ![](/images/barca/13122014-P1210128.jpg)
 
-There wasn't too much snow but we made do with what had collected in a
-ditch. Pau let me place the blocks. I did an OK job: the igloo stood,
-but it looked a bit lopsided.
+There isn't too much snow but we make do with what has collected in a
+ditch. Pau lets me place the blocks. I do an OK job: the igloo stands,
+but it looks a bit lopsided.
 
-Pau made lunch, ramen with tuna fish, and espesso, in a beautiful little
+Pau makes lunch, ramen with tuna fish, and espesso, in a beautiful little
 portable espress maker.
 
 ![](/images/barca/13122014-P1210144.jpg)
 
 ![](/images/barca/13122014-P1210173.jpg)
 
-France lay just across the valley, under lenticular clouds. Some day
+France is just across the valley, under lenticular clouds. Some day
 I'll return and take a proper bike trip over the mountains, perhaps
 with Pau as my guide.
 
