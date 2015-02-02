@@ -2,5 +2,7 @@
 
 set -e
 
-./blog build
+cabal build
+./dist/build/blog/blog clean
+./dist/build/blog/blog build
 rsync -avz _site/* SERVER:/PATH/TO/mjhoy.com/public_html/

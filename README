@@ -1,14 +1,29 @@
 Website generator for http://mjhoy.com
 --------------------------------------
 
-Uses Hakyll: http://jaspervdj.be/hakyll/
 
-To install the `blog` executable to the project directory:
+Building
 
-$ cd path/to/mjhoy.com/
-$ cabal install --bindir=.
-$ ./blog build
+  Uses Hakyll: http://jaspervdj.be/hakyll/
 
-Run a server (automatic re-building):
+    $ cd path/to/mjhoy.com/
 
-$ ./blog preview [port]
+  (Optional: set up a sandbox environment)
+
+    $ cabal sandbox init
+
+  Build the "blog" executable:
+
+    $ cabal install --dependencies-only
+    $ cabal build
+    $ ./dist/build/blog/blog build
+
+  Run a server (automatic re-building):
+
+    $ ./dist/build/blog/blog watch [port]
+
+
+Deploy
+
+  Very simple: build the site and rsync the _site/ directory. See
+  deploy.example for a sample script.
