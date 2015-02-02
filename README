@@ -2,17 +2,22 @@ Website generator for http://mjhoy.com
 --------------------------------------
 
 
-Building
+DEVELOPMENT
 
-  Uses Hakyll: http://jaspervdj.be/hakyll/
+  I use Hakyll [1] to build my site. You'll need to build a Haskell
+  executable, which requires GHC and Cabal.
 
-    $ cd path/to/mjhoy.com/
+  First, clone the repository and cd into it.
 
-  (Optional: set up a sandbox environment)
+    $ cd ~/src
+    $ git clone git@github.com:mjhoy/mjhoy.com.git
+    $ cd mjhoy.com
+
+  Optional: set up a sandbox environment.
 
     $ cabal sandbox init
 
-  Build the "blog" executable:
+  Build the "blog" executable.
 
     $ cabal install --dependencies-only
     $ cabal build
@@ -22,8 +27,21 @@ Building
 
     $ ./dist/build/blog/blog watch [port]
 
+  You can see more commands using --help.
 
-Deploy
+    $ ./dist/build/blog/blog --help
 
-  Very simple: build the site and rsync the _site/ directory. See
-  deploy.example for a sample script.
+  For instance, Hakyll can check for broken links. Very cool.
+
+    $ ./dist/build/blog/blog check
+
+
+DEPLOYMENT
+
+  What I do is very simple: build the site and rsync the _site/
+  directory. See deploy.example for a sample script.
+
+
+REFERENCES
+
+  [1]: Hakyll site generator library, http://jaspervdj.be/hakyll/
