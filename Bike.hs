@@ -43,6 +43,6 @@ bikeFeedConfig= FeedConfiguration
     { feedTitle       = "Biking 2013 | mjhoy.com"
     , feedDescription = "Blogging my bike trip from Maine to Minnesota"
     , feedAuthorName  = "Michael Hoy"
-    , feedAuthorEmail = "michael.john.hoy@gmail.com"
+    , feedAuthorEmail = "mjh@mjhoy.com"
     , feedRoot        = "http://mjhoy.com"
     }

@@ -40,5 +40,5 @@ updates to [Twitter][twitter]. There is an [RSS feed here.][rss]
 [signup]:#emailsignup
 [route]:/images/biking/route.jpg
 [twitter]:http://twitter.com/mjhoy
-[email]:mailto:michael.john.hoy@gmail.com
+[email]:mailto:mjh@mjhoy.com
 [rss]:/rss/bike/atom.xml
