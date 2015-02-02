@@ -7,7 +7,7 @@ I wait in the train station in a little town called Parets for three
 hours. There is a young man sitting across from me who speaks English
 and explains that the train has stopped due to the weather, high-speed
 winds, but he soon leaves, picked up by his girlfriend, leaving me
-with no one who speaks English. A man comes through later, _no seguir_
+with no one who speaks English. Someone comes through later, _no seguir_
 I catch, we aren't continuing. People look as if to leave but stop
 outside and congregate around a man I assume is the conductor. He is
 answering questions and all I can make out is that no one knows
@@ -20,7 +20,7 @@ circle in the town where a bus picks us up to continue the train's
 route north. The bus could fit my bike, to my relief. I sit in the
 back next to an old Catalan couple who say something to me about their
 suitcases when I get on, I explain I don't speak Catalan and they
-smile and wave me in the seat. The bus departs and follows a road
+smile and wave me into the seat. The bus departs and follows a road
 rising up the hillside of the valley. We are headed toward the
 mountains in the north.
 
@@ -31,13 +31,13 @@ moving through the mountain valley. We talk for a little bit. He asks
 me where I'm from. I'm American, too, he says. I've been living
 Catalonia for thirty years. I moved in one year after Franco
 left. It's been interesting watching this country grow as a new
-democracy. He told me his children grew up here and he spoke Catalan
+democracy. He told me his children grew up here and he speaks Catalan
 with all of them.
 
-As we talk, a woman sitting a seat in front of us interrupts in
-Catalan. The man explains to me after they talk that she is a concert
-violinist and knew of his son, who is a composer living in
-California, and apparently well-known in Catalonia.
+A woman sitting a seat in front of us interrupts in Catalan, and they
+talk for a bit, and the man translates for me that she is a concert
+violinist and knew of his son, who is a composer living in California,
+and apparently well-known here.
 
 Eventually, five hours late, I make it to Ripoll.
 
@@ -56,12 +56,11 @@ I visit the Benedectine monastery Santa Maria de Ripoll.
 
 ![](/images/barca/10122014-P1200935.jpg)
 
-I have breakfast at the hotel, which consists of _café con leche_,
-toasted slices of bread coated with tomato juice (a Catalan favorite)
-and a basket full of local cured hams, with a cutting board and knife
-to sample them. I read in the news that the train that had caused my
-delay was impaled by a fallen tree and that the injured conductor had
-his leg amputated.
+I have breakfast at the hotel, _café con leche_, toasted slices of
+bread coated with tomato juice (a Catalan favorite) and a basket full
+of local cured hams, with a cutting board and knife to sample them. I
+read in the news that the train that had caused my delay was impaled
+by a fallen tree and that the injured conductor had his leg amputated.
 
 The hostess is named Aina. Aina, _eye-nah_. I practice saying
 Ripoll. _Reepoiyyy_. In the cold air, my tongue begins to flutter
@@ -91,12 +90,11 @@ I meet a bicyclist, Manel, and we go out for coffee. ¿Qué le gusta?
 the waitress asks. _Café amb llet_ says Manel, _café con leche_ I say.
 The waitress looks at me and says, _vale, dos cafés con leche_. Ah.
 
-The thing about the _gente_ here, says Manel, is
-people in Spain think, oh they just speak Catalaaan out there. But we
-speak perfect Spanish! Everyone speaks Catalan with each other, but
-everyone can speak Spanish, no problem, we all learned it in school. I
-don't think we should be a part of Spanish. We are different. This is
-_catalunya_!
+The thing about the _gente_ here, says Manel, is people in Spain
+think, oh they just speak Catalaaan out there. But we speak perfect
+Spanish! Everyone speaks Catalan with each other, but everyone can
+speak Spanish, no problem, we all learned it in school. I don't think
+we should be a part of Spain. We are different. This is _catalunya_!
 
 So you voted, Sí, Sí?
 
@@ -148,7 +146,7 @@ stoves, scooters, endless tools and odds and ends. This is
 very clean for me, he says. Just last week it was impossible to walk
 in here. I was building a pipe organ for a circus in France.
 
-Dinner is delicious, some kind of cuttlefish risoto. Our conversation
+Dinner is delicious, some kind of cuttlefish risotto. Our conversation
 tends to lapse in and out of English and Spanish. At some point it
 turns to _construcción de iglús_, a favorite topic for Pau, as he once
 was the president of the local igloo builder's association. Before I
