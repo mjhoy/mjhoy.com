@@ -14,7 +14,7 @@ answering questions and all I can make out is that no one knows
 anything. I fiddle with my bike and take photos.  Spanish and Catalan
 are being spoken very quickly and I hardly understand anything.
 
-Finally the conductor makes an annoucement and everyone beings to
+Finally the conductor makes an annoucement and everyone begins to
 leave. Someone repeats to me, _vas a la rotonda._ We walk to a traffic
 circle in the town where a bus picks us up to continue the train's
 route north. The bus could fit my bike, to my relief. I sit in the
