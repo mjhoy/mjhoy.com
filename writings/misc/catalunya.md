@@ -43,8 +43,8 @@ Eventually, five hours late, I make it to Ripoll.
 
 ![](/images/barca/10122014-P1200945.jpg)
 
-Ripoll is a small town nestled in the foothills of the Pyrenees. Here
-I visit the Benedectine monastery Santa Maria de Ripoll.
+Ripoll is a small town in the foothills of the Pyrenees. Here I visit
+the Benedectine monastery Santa Maria de Ripoll.
 
 ![](/images/barca/10122014-P1010011.jpg)
 
