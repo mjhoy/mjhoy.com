@@ -128,7 +128,7 @@ on an old railway trail, part of the _vias verdes_ network in
 Spain. It follows the valley south and slightly downhill. I can coast
 much of the way.
 
-I stop in a village along the way for lunch, and have squid, octopus,
+I stop in a village along the way for lunch, and have squid with pesto
 and delicious fried potatoes called _patates d'Olot_.
 
 ![](/images/barca/12122014-P1210090.jpg)
