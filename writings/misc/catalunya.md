@@ -167,7 +167,7 @@ There isn't too much snow but we make do with what has collected in a
 ditch. Pau lets me place the blocks. I do an OK job: the igloo stands,
 but it looks a bit lopsided.
 
-Pau makes lunch, ramen with tuna fish, and espesso, in a beautiful little
+Pau makes lunch, ramen with tuna fish, and espresso, in a beautiful little
 portable espresso maker.
 
 ![](/images/barca/13122014-P1210144.jpg)
