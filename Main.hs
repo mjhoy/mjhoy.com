@@ -74,6 +74,10 @@ main = hakyll $ do
     compile $ pandocCompiler
           >>= loadAndApplyTemplate "templates/portfolio.html" defaultContext
 
+  match "resume.html" $ do
+    route idRoute
+    compile copyFileCompiler
+
   match "index.markdown" $ do
     route $ setExtension "html"
     compile $ pandocCompiler
