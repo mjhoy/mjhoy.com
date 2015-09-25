@@ -23,6 +23,11 @@ DEVELOPMENT
     $ cabal build
     $ ./dist/build/blog/blog build
 
+  OR, if you use nix, simply run jwiegley's `nix-cabal-build`
+  script[2]:
+
+    $ nix-cabal-build
+
   Run a server (automatic re-building):
 
     $ ./dist/build/blog/blog watch [port]
@@ -45,3 +50,5 @@ DEPLOYMENT
 REFERENCES
 
   [1]: Hakyll site generator library, http://jaspervdj.be/hakyll/
+
+  [2]: https://github.com/jwiegley/nix-config/blob/master/nix-cabal-build
