@@ -23,11 +23,6 @@ DEVELOPMENT
     $ cabal build
     $ ./dist/build/blog/blog build
 
-  OR, if you use nix, simply run jwiegley's `nix-cabal-build`
-  script[2]:
-
-    $ nix-cabal-build
-
   Run a server (automatic re-building):
 
     $ ./dist/build/blog/blog watch [port]
@@ -40,6 +35,18 @@ DEVELOPMENT
 
     $ ./dist/build/blog/blog check
 
+
+DEVELOPMENT (nix)
+
+  Don't do the cabal setup; instead:
+
+    $ nix-shell
+
+  This command will install ghc and the required packages into a shell
+  ready for building. Now you can run the cabal commands:
+
+    [nix-shell]$ cabal configure
+    [nix-shell]$ cabal build
 
 DEPLOYMENT
 
