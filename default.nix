@@ -5,7 +5,7 @@ mkDerivation {
   src = ./.;
   isLibrary = false;
   isExecutable = true;
-  buildDepends = [ base hakyll pandoc ];
+  executableHaskellDepends = [ base hakyll pandoc ];
   homepage = "http://mjhoy.com";
   description = "mjhoy.com website";
   license = stdenv.lib.licenses.mit;
