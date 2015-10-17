@@ -2,17 +2,9 @@
 
 module Writings (writingsRoutes) where
 
-import Hakyll (
-    route
-  , defaultContext
-  , setExtension
-  , compile
-  , loadAndApplyTemplate
-  , pandocCompiler
-  , copyFileCompiler
-  , idRoute
-  , match )
+import Hakyll
 
+writingsRoutes :: Rules ()
 writingsRoutes = do
   match "writings/**.png" $ do
     route idRoute

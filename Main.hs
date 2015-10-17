@@ -2,28 +2,11 @@
 
 module Main (main) where
 
-import Hakyll (
-    hakyll
-  , getResourceString
-  , getResourceBody
-  , withItemBody
-  , route
-  , defaultContext
-  , idRoute
-  , setExtension
-  , compile
-  , loadAndApplyTemplate
-  , templateCompiler
-  , unixFilter
-  , compressCss
-  , pandocCompiler
-  , copyFileCompiler
-  , match )
+import Hakyll
 
 import Bike (bikeRoutes)
 import Journal (journalRoutes)
 import Writings (writingsRoutes)
-import MyCompilers (rawPandocCompiler)
 
 main :: IO ()
 main = hakyll $ do
@@ -87,5 +70,6 @@ main = hakyll $ do
   journalRoutes
   writingsRoutes
 
+sass :: Compiler (Item String)
 sass = getResourceString >>= withItemBody (unixFilter "sass" ["-s", "--scss"])
                          >>= return . fmap compressCss

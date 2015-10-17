@@ -2,17 +2,9 @@
 
 module Journal (journalRoutes) where
 
-import Hakyll (
-    route
-  , defaultContext
-  , setExtension
-  , compile
-  , loadAndApplyTemplate
-  , pandocCompiler
-  , copyFileCompiler
-  , idRoute
-  , match )
+import Hakyll
 
+journalRoutes :: Rules()
 journalRoutes = do
   match "journal/**.png" $ do
     route idRoute

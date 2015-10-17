@@ -2,25 +2,9 @@
 
 module Bike (bikeRoutes) where
 
-import Hakyll (
-    route
-  , defaultContext
-  , idRoute
-  , setExtension
-  , compile
-  , loadAndApplyTemplate
-  , pandocCompiler
-  , recentFirst
-  , renderAtom
-  , FeedConfiguration(..)
-  , create
-  , saveSnapshot
-  , loadAllSnapshots
-  , bodyField
-  , match )
+import Hakyll
 
-import Data.Monoid (mappend)
-
+bikeRoutes :: Rules ()
 bikeRoutes = do
   match "bike/*" $ do
     route $ setExtension "html"
