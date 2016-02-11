@@ -1,0 +1,2 @@
+Very simple. Build the site, and then rsync _site/ up to a public_html
+directory somewhere. See deploy.example for a sample script.
