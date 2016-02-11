@@ -54,6 +54,15 @@ Note that `nix-env -iA nixpkgs.mjhoy_com; blog watch` won't work as
 the compass dependency is not installed into your PATH. To do this you
 can run `nix-env -iA nixpkgs.compass`.
 
+The standard `cabal build` takes a while to link the executable. To
+speed things up you can run
+
+  $ cabal configure --disable-library-profiling \
+                    --disable-executable-profiling \
+                    --enable-shared \
+                    --enable-library-vanilla \
+                    --enable-executable-dynamic
+
 ----------
 References
 
