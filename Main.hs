@@ -4,6 +4,8 @@ module Main (main) where
 
 import Hakyll
 
+import Static (staticRoutes)
+import Post (postRoutes)
 import Bike (bikeRoutes)
 import Journal (journalRoutes)
 import Writings (writingsRoutes)
@@ -11,35 +13,14 @@ import Writings (writingsRoutes)
 main :: IO ()
 main = hakyll $ do
 
-  match "images/*" $ do
-    route   idRoute
-    compile copyFileCompiler
+  -- images/
+  -- js/
+  -- LICENSE
+  -- resume.html
+  staticRoutes
 
-  match "images/**/*" $ do
-    route   idRoute
-    compile copyFileCompiler
-
-  match "js/*" $ do
-    route   idRoute
-    compile copyFileCompiler
-
-  match "js/**/*" $ do
-    route   idRoute
-    compile copyFileCompiler
-
-  match "LICENSE" $ do
-    route   idRoute
-    compile copyFileCompiler
-
-  match "posts/*.html" $ do
-    route $ setExtension "html"
-    compile $ getResourceBody
-          >>= loadAndApplyTemplate "templates/default.html" defaultContext
-
-  match "posts/*" $ do
-    route $ setExtension "html"
-    compile $ pandocCompiler
-          >>= loadAndApplyTemplate "templates/default.html" defaultContext
+  -- posts/
+  postRoutes
 
   match "photo/*" $ do
     route $ setExtension "html"
@@ -56,10 +37,6 @@ main = hakyll $ do
     route $ setExtension "html"
     compile $ pandocCompiler
           >>= loadAndApplyTemplate "templates/portfolio.html" defaultContext
-
-  match "resume.html" $ do
-    route idRoute
-    compile copyFileCompiler
 
   match "index.markdown" $ do
     route $ setExtension "html"
