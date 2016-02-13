@@ -27,9 +27,9 @@ main = hakyll $ do
     compile $ pandocCompiler
           >>= loadAndApplyTemplate "templates/photo.html" defaultContext
 
-  match "stylesheets/main.scss" $ do
-    route $ setExtension "css"
-    compile sass
+  match "stylesheets/*.css" $ do
+    route $ idRoute
+    compile copyFileCompiler
 
   match "templates/*" $ compile templateCompiler
 
@@ -46,7 +46,3 @@ main = hakyll $ do
   bikeRoutes
   journalRoutes
   writingsRoutes
-
-sass :: Compiler (Item String)
-sass = getResourceString >>= withItemBody (unixFilter "sass" ["-s", "--scss"])
-                         >>= return . fmap compressCss
