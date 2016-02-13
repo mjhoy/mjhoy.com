@@ -1,4 +1,30 @@
 section#content header h1 {
+  letter-spacing: 0;
+  text-transform: none;
   font-size: 1em;
   font-weight: 600;
+}
+section#content header h2 {
+  margin-top: 0em;
+  font-size: 0.85em;
+  margin-bottom: 1.5em;
+}
+
+section#content h1 {
+  font-size: 0.85em;
+  font-weight: normal;
+  font-family: Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2em;
+}
+
+.aside {
+  font-family:Helvetica;
+  font-size:0.75em;
+  line-height:1.5em;
+  position: absolute;
+  margin-top: -8px;
+  left: 680px;
+  width: 200px;
 }
