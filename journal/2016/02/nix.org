@@ -60,12 +60,6 @@ we can include with the project in a =default.nix= file:
 
 [[./default.nix][default.nix]]:
 
-This is a nix function that takes an input, =stdenv= (think of this as
-=coreutils=, a basic compiler and set of utilities to build C
-programs) and it returns a "derivation" which you can think of as a
-recipe for producing some directory =$out=, which -- in this case -- contains
-a library (libfoo.a) and header (foo.h).
-
 #+BEGIN_SRC nix :tangle default.nix
 { stdenv }:
 
@@ -84,6 +78,12 @@ stdenv.mkDerivation {
   '';
 }
 #+END_SRC
+
+This is a nix function that takes an input, =stdenv= (think of this as
+=coreutils=, a basic compiler and set of utilities to build C
+programs) and it returns a "derivation" which you can think of as a
+recipe for producing some directory =$out=, which -- in this case -- contains
+a library (libfoo.a) and header (foo.h).
 
 "Installing" in nix is pretty easy: we just dump the things we want
 into =$out=.
