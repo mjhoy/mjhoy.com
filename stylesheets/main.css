@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Georgia;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+pre, code {
+  font-family: "Courier New";
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid #A32929;
+}
+a:hover { border-bottom-color: black; }
+
+/* main header */
+header#main {
+  height: 25px;
+  overflow: hidden;
+}
+
+/* content */
+section#content {
+  margin-left: 3em;
+  margin-top:  2em;
+  max-width: 600px;
+}
+section#content header {
+  font-family: Helvetica, sans-serif;
+}
+section#content header h1 {
+  font-weight: 300;
+  font-size: 1.6em;
+  margin-bottom: 0;
+}
+section#content header h2 {
+  font-weight: normal;
+  font-size:   1em;
+  margin-top: -0.5em;
+  margin-bottom: 0;
+  color: #777;
+}
+
+/* footer */
+footer#main {
+  font-family: Helvetica, sans-serif;
+  font-size:   11px;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  width:         600px;
+  margin-left:   43px;
+  margin-top:    2em;
+  margin-bottom: 2em;
+  padding-top:   1em;
+
+  border-top: 1px solid #ccc;  
+}
+
+footer#main p {
+  margin: 0.5em 0;
+}

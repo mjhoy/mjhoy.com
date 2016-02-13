@@ -4,7 +4,7 @@ module Journal (journalRoutes) where
 
 import Hakyll
 
-journalRoutes :: Rules()
+journalRoutes :: Rules ()
 journalRoutes = do
   match "journal/**.png" $ do
     route idRoute
