@@ -3,7 +3,7 @@ title: Home
 ---
 
 <p class="intro">
-  I am a [website developer][portfolio] living in Boston, Massachusetts.
+  I am a [website developer][portfolio] living in Minneapolis, Minnesota.
 </p>
 
 ### Journal
