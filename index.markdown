@@ -6,6 +6,10 @@ title: Home
   I am a [website developer][portfolio] living in Boston, Massachusetts.
 </p>
 
+### Journal
+
+2016.02.13: [Nix packages, a simple C library example][journ1]
+
 ### Writing
 
 [A short bike trip in Catalunya][bike2]
@@ -33,3 +37,4 @@ title: Home
 [source]:https://github.com/mjhoy/mjhoy.com
 [bike]:bike
 [bike2]:writings/misc/catalunya.html
+[journ1]:journal/2016/02/nix.html

@@ -28,3 +28,20 @@ section#content h1 {
   left: 680px;
   width: 200px;
 }
+
+div[rundoc-tangle],
+pre[rundoc-tangle] {
+  padding-left: 10px;
+  border-left: 2px solid #ccc;
+}
+div[rundoc-tangle="no"],
+pre[rundoc-tangle="no"] {
+  padding-left: 0;
+  border-left: none;
+}
+pre.example {
+  font-weight: bold;
+  background-color: #eee;
+  padding: 10px;
+  border: 1px solid #ccc;
+}

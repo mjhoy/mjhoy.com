@@ -1,0 +1,262 @@
+---
+title: Nix packages, a simple C library example
+date:  2016/02/13
+categories: nix, programming
+---
+
+I've been playing around with [[https://nixos.org/nix][nix]] for little programming projects. Nix
+is a package manager that can build all sorts of things (including an
+operating system, check out NixOS!)
+
+Let's write a little C library, =libfoo=. Libfoo is two things that we
+care about: =libfoo.a= and =foo.h=. Here's our source:
+
+[[./foo.c][foo.c]]:
+
+#+BEGIN_SRC c :tangle foo.c
+#include <stdio.h>
+#include "foo.h"
+
+int foo(char *msg)
+{
+    printf("hi from foo: %s\n", msg);
+
+    return 0;
+}
+#+END_SRC
+
+[[./foo.h][foo.h]]:
+
+#+BEGIN_SRC c :tangle foo.h
+/* prints a foo'd msg */
+int foo(char *msg);
+#+END_SRC
+
+[[./Makefile][Makefile]]:
+
+#+BEGIN_SRC makefile :tangle Makefile
+all: libfoo.a
+libfoo.a: foo.c foo.h
+	cc -c -g foo.c
+	ar rs libfoo.a foo.o
+	@echo "built libfoo.a!"
+clean:
+	rm -f *.o libfoo.a
+#+END_SRC
+
+We can build =libfoo.a= naturally:
+
+#+begin_src sh :exports both :results verbatim
+make
+#+end_src
+
+#+RESULTS:
+: cc -c -g foo.c
+: ar rs libfoo.a foo.o
+: built libfoo.a!
+
+Now let's package this up in nix. Here's a simple nix expression that
+we can include with the project in a =default.nix= file:
+
+[[./default.nix][default.nix]]:
+
+This is a nix function that takes an input, =stdenv= (think of this as
+=coreutils=, a basic compiler and set of utilities to build C
+programs) and it returns a "derivation" which you can think of as a
+recipe for producing some directory =$out=, which -- in this case -- contains
+a library (libfoo.a) and header (foo.h).
+
+#+BEGIN_SRC nix :tangle default.nix
+{ stdenv }:
+
+stdenv.mkDerivation {
+  name = "libfoo-0.1";
+
+  src = ./.;
+
+  installPhase = ''
+    mkdir -p $out/lib
+    mkdir -p $out/include
+
+    # the buildPhase has already produced libfoo.a
+    cp libfoo.a $out/lib
+    cp foo.h    $out/include    
+  '';
+}
+#+END_SRC
+
+"Installing" in nix is pretty easy: we just dump the things we want
+into =$out=.
+
+If we were instead building some binary, we would want to cp the
+binary to =$out/bin=.
+
+Eventually =$out= will refer to something in =/nix/store=, something
+like:
+
+=/nix/store/ncdxc5m998zipbwwqyqb8idd9di6i76s-libfoo/=
+
+where the hash "ncdxc..." is computed using the hashes of all of its
+dependencies (the inputs to the function, or =stdenv=) and the source
+code (a hash of the contents of =src=).
+
+#+BEGIN_ASIDE
+If we update our nix package repository, and =stdenv= is updated for
+some reason, installing =libfoo= will result in a /different/ hash as
+it depends on a different version of stdenv. If we made a change to
+the Makefile (even adding a space, not changing the build products)
+the hash would change. If we removed that space, the hash would again
+be "ncdxc..." and -- here's the cool part -- if we had previously
+built the package with that hash, and install it again, nix wouldn't
+need to do anything, it knows it has that exact version!
+#+END_ASIDE
+
+Notice there is no call to =make= or =gcc= in our recipe. That's
+because =stdenv.mkDerivation= by default knows how to build projects
+using Make: it will run Make for us. And if our little project had
+used autotools, we wouldn't need to set up the =installPhase= either,
+as Nix runs =make install=. Thankfully we don't need to use autotools
+(phew!) and can simply override =installPhase= with our simple script.
+
+(There are, naturally, other phases you can override,
+=configurePhase=, =buildPhase=, etc. Nix will try to run =./configure=
+since we don't override =configurePhase= but since the script doesn't
+exist it will just skip that step.)
+
+Nix allows to add this expression to the overall set of nix
+expressions really easy in =~/.nixpkgs/config.nix=; we might have
+something like:
+
+#+BEGIN_SRC nix
+{
+  packageOverrides = super: let self = super.pkgs; in with self; rec {
+    # inside here we can override or add new packages
+
+    libfoo = import ~/proj/libfoo { inherit stdenv; };
+
+  }
+}
+#+END_SRC
+
+Ignore the complicated =packageOverrides= function; what this does is
+adds a =libfoo= package to our nix packages (which is defined by
+importing the function at =~/proj/libfoo/default.nix= and calling it
+with our =stdenv= package).
+
+Now, we can build it with
+
+#+begin_src sh :exports both :results verbatim
+nix-build '<nixpkgs>' -A libfoo
+#+end_src
+
+#+RESULTS:
+: /nix/store/g7sgsbqf5xffvkrjd2vp5z9a8lr6y0wr-libfoo-0.1
+
+=nix-build= spits out a freshly built directory! Let's see what's in it:
+
+#+begin_src sh :exports both :results verbatim
+tree /nix/store/g7sgsbqf5xffvkrjd2vp5z9a8lr6y0wr-libfoo-0.1
+#+end_src
+
+#+RESULTS:
+: /nix/store/g7sgsbqf5xffvkrjd2vp5z9a8lr6y0wr-libfoo-0.1
+: ├── include
+: │   └── foo.h
+: └── lib
+:     └── libfoo.a
+: 
+: 2 directories, 2 files
+
+Looks good. Now, how do we actually use this? Let's make another
+little project, =bar=, that depends on =libfoo=. Bar is going to be
+/really/ simple, it's just going to be a =main.c= file:
+
+#+BEGIN_SRC c :tangle main.c
+#include <foo.h>
+
+int main(int argc, char *argv[])
+{
+    foo("this is a test.");
+
+    return 0;
+}
+#+END_SRC
+
+Trying to build it doesn't work, it doesn't know where or what =foo.h= is:
+
+#+BEGIN_SRC sh :exports both :results verbatim
+gcc -o bar main.c
+#+END_SRC
+
+#+RESULTS:
+: main.c:1:17: fatal error: foo.h: No such file or directory
+:  #include <foo.h>
+:                  ^
+: compilation terminated.
+ 
+ 
+We need to reference =libfoo.a= and =foo.h= somehow. Let's try this
+nix expression. We're going to add it directly to
+=~/.nixpkgs/config.nix= (inisde the packageOverrides function) rather
+than import fron a =default.nix= file:
+
+#+BEGIN_SRC nix
+bar = stdenv.mkDerivation {
+  name = "bar-0.1";
+  src = ~/proj/bar/.; # or wherever you put main.c
+  buildInputs = [ libfoo ];
+  inherit libfoo;
+  buildPhase = ''
+    gcc -o bar main.c $libfoo/lib/libfoo.a
+  ''
+  installPhase = ''
+    mkdir -p $out/bin
+    cp bar $out/bin
+  '';
+}
+#+END_SRC
+
+First of all, we aren't even using make, so we override =buildPhase=
+to call =gcc= directly:
+
+=gcc -o bar main.c $libfoo/lib/libfoo.a=
+
+Woah, what's this reference to =$libfoo/lib/libfoo.a=? How do we
+translate =$libfoo= to the directory installed in =/nix/store=? That's
+what the =inherit libfoo= line does. In the derivation, each attribute
+is available to the builder during build/configure/install phases. So
+$libfoo is dereferenced to its location in the nix store.
+
+#+BEGIN_ASIDE
+$libfoo is the /current/ libfoo attribute in our nixpkgs, meaning that
+=bar= will not depend on one specific version. If we happen to change
+libfoo (tweak the source code, whatever), then the next time we build
+bar, nix will rebuild libfoo and $libfoo will reference the updated
+version.
+
+You would need to make a separate package (say, =libfoo_0_1=) to
+depend on a specific version.
+#+END_ASIDE
+
+In addition, gcc knows where the =<foo.h>= header is from the
+=buildInputs= line. This sets up the include path for the compiler so
+that it knows about =$libfoo/include=.
+
+OK, let's try it:
+
+#+begin_src sh :exports both :results verbatim
+nix-build '<nixpkgs>' -A bar
+#+end_src
+
+#+RESULTS:
+: /nix/store/5mgvqcdiz17rh9fzf8ck66k0m1qb8bn7-bar-0.1
+
+Nice! Let's try running the =bar= program which hopefully is inside
+its =bin= directory:
+
+#+begin_src sh :exports both :results verbatim
+/nix/store/5mgvqcdiz17rh9fzf8ck66k0m1qb8bn7-bar-0.1/bin/bar
+#+end_src
+
+#+RESULTS:
+: hi from foo: this is a test.

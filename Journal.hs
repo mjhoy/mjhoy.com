@@ -1,18 +1,24 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Journal (journalRoutes) where
+module Journal (journalRoutes, journalCtx, entries) where
 
 import Hakyll
+
+entries = recentFirst =<< loadAll "journal/*"
 
 journalRoutes :: Rules ()
 journalRoutes = do
   match "journal/**.org" $ do
     route $ setExtension "html"
     compile $ pandocCompiler
-          >>= loadAndApplyTemplate "templates/journal.html" defaultContext
+          >>= loadAndApplyTemplate "templates/journal.html" journalCtx
 
   -- source code matching: just copy it over
   match "journal/**" $ version "raw" $ do
     route idRoute
     compile copyFileCompiler
 
+journalCtx :: Context String
+journalCtx =
+  dateField "date" "%Y/%m/%d" `mappend`
+  defaultContext

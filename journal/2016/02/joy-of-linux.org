@@ -1,0 +1,9 @@
+---
+title:      The joy of linux
+date:       2012/10/12
+categories: writing
+---
+
+I've used a Mac since I was 6 or so, starting on an old Mac Plus (I
+can still remember the sound of the thing booting up, the big external
+harddrives whirring to life, the huge trackball mouse we had.)
