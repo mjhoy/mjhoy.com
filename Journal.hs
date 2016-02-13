@@ -1,10 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Journal (journalRoutes, journalCtx, entries) where
+module Journal (journalRoutes, journalCtx) where
 
 import Hakyll
-
-entries = recentFirst =<< loadAll "journal/*"
 
 journalRoutes :: Rules ()
 journalRoutes = do
