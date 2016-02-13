@@ -6,11 +6,13 @@ import Hakyll
 
 journalRoutes :: Rules ()
 journalRoutes = do
-  match "journal/**.png" $ do
-    route idRoute
-    compile copyFileCompiler
-
-  match "journal/**" $ do
+  match "journal/**.org" $ do
     route $ setExtension "html"
     compile $ pandocCompiler
           >>= loadAndApplyTemplate "templates/journal.html" defaultContext
+
+  -- source code matching: just copy it over
+  match "journal/**" $ version "raw" $ do
+    route idRoute
+    compile copyFileCompiler
+
