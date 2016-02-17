@@ -1,0 +1,150 @@
+---
+title: NixOS and glibc
+date: 2016/02/17
+category: nix
+---
+
+The NixOS distribution (on unstable) is really up to date and hip and
+cool... until a security bug in glibc hits. Because Nix packages are
+pure functions and different inputs result in different outputs, you
+can't easily swap out glibc (even though it is dynamically linked at
+runtime) because, well, nearly everything depends on it. The NixOS
+build system needs to rebuild the world to get out a patch. And that
+seems to take at least a few days.
+
+I asked around on #nixos and the friendly folk there pointed me to the
+nix-dev mailing list, where a workaround was posted, using
+=system.replaceRuntimeDependencies=, a NixOS option I wasn't aware of.
+
+Basically, after a complete build of NixOS, Nix can then traverse the
+dependency graph of a particular package and =sed= references to it
+with a different reference. In this case, the insecure glibc with a
+patched build. This version then outputs a new build of NixOS, with
+any binaries depending on glibc patched.
+
+The mailing list solution is [[http://thread.gmane.org/gmane.linux.distributions.nixos/19479/focus=19486][here]]. (It's worth reading Russell
+O'Connor's followup as well which explains in detail how this works.)
+
+OK, great. I added that to my configuration.nix and ran =nixos-rebuild
+switch= and watched the new glibc compile and then lots of new
+derivations get built. My little chromebook barely has any free space
+so I frantically deleted stuff as my /nix/store doubled (more or less)
+in size. Which makes sense: any package that ultimately depends on
+glibc must be copied, modified, and given a new /nix/store build
+output.
+
+Let's try to trace this work in the store. First, find the patch:
+
+#+begin_src sh :exports both
+ls /nix/store | grep cve-2015-7547
+#+end_src
+
+#+RESULTS:
+: 31frqlixbr97giskrqq3kkflh35nayr6-cve-2015-7547.patch.drv
+
+We can inspect this derivation if we're interested, and make sure it
+references the github link to the patch:
+
+#+BEGIN_ASIDE
+I've edited the output a little so that it will fit in the page.
+#+END_ASIDE
+
+#+begin_src sh :results verbatim :exports both
+patch=/nix/store/31frqlixbr97giskrqq3kkflh35nayr6-cve-2015-7547.patch.drv
+cat $patch | tr ',' '\n' | grep -C 3 github
+#+end_src
+
+#+RESULTS:
+: ("system"
+: "x86_64-linux")
+: ("urls"
+: "https://raw.githubusercontent.com/NixOS/[..]/glibc/cve-2015-7547.patch")
+
+Now let's check what references this patch:
+
+#+begin_src sh :exports both
+nix-store -q --referrers $patch
+#+end_src
+
+#+RESULTS:
+: /nix/store/vxnnlmg5cnwyrqsk6izlw50h64mcfd0p-glibc-2.21.drv
+
+There's the derivation for a patched glibc. And let's see what the
+output for that derivation is:
+
+#+begin_src sh :exports both
+glibc_drv=/nix/store/vxnnlmg5cnwyrqsk6izlw50h64mcfd0p-glibc-2.21.drv
+nix-store -q --outputs $glibc_drv
+#+end_src
+
+#+RESULTS:
+: /nix/store/5nd78rlrn0m6gcjda527xbywnsp1fd19-glibc-2.21
+
+So: there is our patched glibc. Our programs should all reference
+/this/ glibc now, not other ones. I make sure, first, to reboot the
+machine to reload all running programs. Now let's check =lsof= to make
+SURE this glibc is in use.
+
+#+BEGIN_ASIDE
+This command first lists all occurrences of a =*libc-2.21.so*= file
+being opened by a program, and then prints only the unique paths that
+are referenced. (By the way, I first checked for other versions of
+=libc= and found none, and including =2.21= in the grep removes other
+libc-related things.)
+#+END_ASIDE
+
+#+begin_src sh :session *shell* :results verbatim :exports both
+sudo lsof | grep libc-2.21.so | cut -c 89- | sort | uniq
+#+end_src
+
+#+RESULTS:
+: nix/store/5nd78rlrn0m6gcjda527xbywnsp1fd19-glibc-2.21/lib/libc-2.21.so
+: nix/store/jlmb88f5hgigbmc3c74ynxgn3frlzxkr-glibc-2.21/lib/libc-2.21.so
+: nix/store/npfsi1d9ka8zwnxzn3sr08hbwvpapyk7-glibc-2.21/lib/libc-2.21.so
+
+There at the top of the output is our =5nd78r...= glibc... and two
+others! So other programs are still referencing other (I'm assuming,
+unpatched) glibc libraries. Let's try to figure out what programs have
+opened those:
+
+#+begin_src sh :session *shell* :results verbatim :exports both
+for x in $(sudo lsof | grep libc-2.21.so | cut -c 89- | sort | uniq | xargs);
+  do echo $x; echo "---------"; sudo lsof | grep $x | cut -c -12; echo;
+done
+#+end_src
+
+#+RESULTS:
+#+begin_example
+
+nix/store/5nd78rlrn0m6gcjda527xbywnsp1fd19-glibc-2.21/lib/libc-2.21.so
+---------
+systemd     
+systemd-j   
+systemd-u   
+polkitd     
+gmain       
+gdbus       
+JS\x20GC    
+JS\x20Sou   
+runaway-k   
+w3m         
+dbus-daem   
+[...truncating output, lots more here...]
+
+nix/store/jlmb88f5hgigbmc3c74ynxgn3frlzxkr-glibc-2.21/lib/libc-2.21.so
+---------
+lsof       
+lsof       
+
+nix/store/npfsi1d9ka8zwnxzn3sr08hbwvpapyk7-glibc-2.21/lib/libc-2.21.so
+---------
+emacs       
+gmain
+#+end_example
+
+Interesting. *Most* of the programs on my system reference the patched
+version of glibc; and then there's: =lsof= itself (!!) which references
+another, and then =emacs= and =gmain= (??) which reference yet another
+glibc.
+
+To do: figure out why that is, fix it.
