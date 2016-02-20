@@ -63,6 +63,8 @@ speed things up you can run
                     --enable-library-vanilla \
                     --enable-executable-dynamic
 
+Or, run the included `configure-dev` script.
+
 ----------
 References
 

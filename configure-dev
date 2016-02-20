@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+cabal configure --disable-library-profiling \
+                --disable-executable-profiling \
+                --enable-shared \
+                --enable-library-vanilla \
+                --enable-executable-dynamic
