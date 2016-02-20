@@ -148,3 +148,5 @@ another, and then =emacs= and =gmain= (??) which reference yet another
 glibc.
 
 To do: figure out why that is, fix it.
+
+Read [[./nix-glibc-2.html][NixOS and glibc part 2]].

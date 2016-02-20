@@ -8,6 +8,8 @@ title: Home
 
 ### Journal
 
+2016.02.20: [NixOS and glibc part 2][journ3]
+
 2016.02.17: [NixOS and glibc][journ2]
 
 2016.02.13: [Nix packages, a simple C library example][journ1]
@@ -41,3 +43,4 @@ title: Home
 [bike2]:writings/misc/catalunya.html
 [journ1]:journal/2016/02/nix.html
 [journ2]:journal/2016/02/nix-glibc.html
+[journ3]:journal/2016/02/nix-glibc-2.html

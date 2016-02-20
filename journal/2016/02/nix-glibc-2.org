@@ -1,0 +1,220 @@
+---
+title: NixOS and glibc, part 2
+date: 2016/02/20
+categories: nix
+---
+
+In my [[http:/journal/2016/02/nix-glibc.html][previous post]] I patched =glibc= on my NixOS install only to find
+that unpatched copies were still loaded in the system; emacs was using
+one, and =lsof= was using another (although it occurred to me that
+perhaps the act of looking for open files was somehow opening this
+older glibc. Hmm...)
+
+I hoped to figure out the problem then and there but had to go eat
+something. Such is life.
+
+Now I'm back, although in the meantime I think I've updated =nixpkgs=
+and rebuilt the system, so I'm sure I'll get different results. Let's
+try my command from last time:
+
+#+begin_src sh :session *shell* :exports both :results verbatim
+for x in $(sudo lsof | grep libc-2.21.so | cut -c 89- | sort | uniq | xargs);
+  do echo $x; echo "---------"; sudo lsof | grep $x | cut -c -12; echo;
+done
+#+end_src
+
+#+RESULTS:
+#+begin_example
+/nix/store/483br9kb3f5igsgmb6aqsjhl2ipj2bxr-glibc-2.21/lib/libc-2.21.so
+---------
+htop      29
+
+/nix/store/5nd78rlrn0m6gcjda527xbywnsp1fd19-glibc-2.21/lib/libc-2.21.so
+---------
+systemd     
+systemd-j   
+systemd-u   
+polkitd     
+gmain       
+gdbus       
+JS\x20GC    
+JS\x20Sou   
+runaway-k   
+[...] truncating, lots more lines here...
+
+/nix/store/jlmb88f5hgigbmc3c74ynxgn3frlzxkr-glibc-2.21/lib/libc-2.21.so
+---------
+lsof      17
+lsof      17
+
+/nix/store/n2wxp513rr00f6hr2dy0waqahns49dch-glibc-2.21/lib/libc-2.21.so
+---------
+ghc        4
+ghc_worke  4
+ghc_worke  4
+ghc_worke  4
+ghc_worke  4
+blog      17
+ghc-mod   24
+ghc_worke 24
+ghc_worke 24
+ghc_worke 24
+ghc_worke 24
+ghc-mod   28
+ghc_worke 28
+ghc_worke 28
+ghc_worke 28
+ghc_worke 28
+
+/nix/store/npfsi1d9ka8zwnxzn3sr08hbwvpapyk7-glibc-2.21/lib/libc-2.21.so
+---------
+emacs      3
+gmain      3
+#+end_example
+
+OK, let's see what we have:
+
+1. The same patched version of =glibc= is there and most of my
+   programs use it,
+
+2. emacs and whatever gmain is are still using another version, let's
+   throw it in a variable:
+
+   #+begin_src sh :session *shell* :exports both :results none
+   emacs_glibc=/nix/store/npfsi1d9ka8zwnxzn3sr08hbwvpapyk7-glibc-2.21/lib/libc-2.21.so
+   #+end_src
+
+3. as I'm writing the blog with =ghci= and =ghc_mod= it appears they
+   are using another glibc I hadn't seen yet,
+
+   #+begin_src sh :session *shell* :exports both :results none
+   haskell_glibc=/nix/store/n2wxp513rr00f6hr2dy0waqahns49dch-glibc-2.21/lib/libc-2.21.so
+   #+end_src
+
+4. =lsof= is again using yet another glibc, same as last time,
+
+   #+begin_src sh :session *shell* :exports both :results none
+   lsof_glibc=/nix/store/jlmb88f5hgigbmc3c74ynxgn3frlzxkr-glibc-2.21/lib/libc-2.21.so
+   #+end_src
+
+5. finally, =htop= (which I have running in the background) is using
+   yet another!
+
+   #+begin_src sh :session *shell* :exports both :results none
+   htop_glibc=/nix/store/483br9kb3f5igsgmb6aqsjhl2ipj2bxr-glibc-2.21/lib/libc-2.21.so
+   #+end_src
+
+Let's see what happens when we query =--roots= against these:
+
+#+begin_src sh :session *shell* :exports both :results verbatim
+declare -A unpatched
+unpatched["emacs"]=$emacs_glibc
+unpatched["haskell"]=$haskell_glibc
+unpatched["lsof"]=$lsof_glibc
+unpatched["htop"]=$htop_glibc
+for x in "${!unpatched[@]}";
+  do echo $x;
+  echo "-----";
+  nix-store -q --roots ${unpatched[$x]};
+  echo;
+done
+#+end_src
+
+#+RESULTS:
+#+begin_example
+htop
+-----
+/nix/var/nix/profiles/default-10-link
+/nix/var/nix/profiles/per-user/mjhoy/profile-58-link
+
+lsof
+-----
+/nix/var/nix/profiles/per-user/mjhoy/channels-1-link
+/nix/var/nix/profiles/per-user/mjhoy/profile-58-link
+
+emacs
+-----
+/nix/var/nix/profiles/default-10-link
+
+haskell
+-----
+/nix/var/nix/profiles/default-10-link
+/nix/var/nix/profiles/per-user/mjhoy/profile-58-link
+/nix/var/nix/profiles/per-user/root/channels-8-link
+/nix/var/nix/profiles/per-user/root/channels-9-link
+/nix/var/nix/profiles/system-69-link
+/run/booted-system
+/run/current-system
+#+end_example
+
+Let's take htop's glibc first. It appears to be rooted with my user
+profile, although htop is not actually installed in my user profile:
+it's in the =default= profile, which I take it is the profile of the
+root user.
+
+#+begin_src sh :session *shell* :results verbatim :exports both
+nix-store -q --roots `which htop`
+#+end_src
+
+#+RESULTS:
+: /nix/var/nix/profiles/default-10-link
+
+Let's try moving htop from the default profile into the NixOS
+=systemPackages= and confirm my suspicion.
+
+#+begin_src sh :session *shell* :results verbatim :exports both
+sudo nix-env -e htop
+#+end_src
+
+#+RESULTS:
+: uninstalling ‘htop-2.0.0’
+
+After adding to my system packages and running =nixos-rebuild switch=,
+let's check the output from lsof:
+
+#+begin_src sh :session *shell* :results verbatim :exports both
+for x in $(sudo lsof | grep libc-2.21.so | cut -c 89- | sort | uniq | xargs);
+  do echo $x; echo "---------"; sudo lsof | grep $x | cut -c -12; echo;
+done
+#+end_src
+
+#+RESULTS:
+#+begin_example
+/nix/store/5nd78rlrn0m6gcjda527xbywnsp1fd19-glibc-2.21/lib/libc-2.21.so
+---------
+systemd     
+systemd-j   
+systemd-u   
+w3m         
+dbus-daem   
+[.....]
+htop      23
+[.....]
+
+[... trimming the rest ....]
+#+end_example
+
+Looking in the patched glibc list, htop appears there. So, this seems
+to be the issue: the patch only works for system packages. User
+profiles (including the default profile) will not get patched
+because... well, I guess that's just not how it's implemented. A bit
+annoying in this case: it displays both a strength and weakness in
+using NixOS. The strength of Nix is that the profiles are more or less
+totally isolated and even updating glibc for system packages won't
+affect user packages. The downside is that you might not expect this,
+and it makes it rather difficult to update core
+dependencies. Apparently the trick of patching the system doesn't
+exist for user profiles; I would need to build glibc from scratch to
+properly patch it. I don't particularly want to find out how long that
+would take.
+
+Part of my problem is that I rely too much on user profiles; my entire
+development environment should probably be in the systemPackages
+attribute of NixOS. However I also use Nix packages on my OSX laptop,
+and in that case there is no systemPackages; so I'll need to figure
+out how share the same set of packages between the two.
+
+I'm guessing the other glibcs exist for the same reason except in the
+case of haskell, which does link into the current running system. I'll
+need to dive in further to investigate why that is, but I think that's
+enough for today.
