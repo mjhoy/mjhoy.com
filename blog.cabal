@@ -16,6 +16,6 @@ cabal-version:       >=1.8
 executable blog
   main-is:           Main.hs
   -- other-modules:
-  build-depends:     base ==4.8.*
-                   , hakyll ==4.7.*
-                   , pandoc ==1.16.*
+  build-depends:     base ==4.*
+                   , hakyll ==4.*
+                   , pandoc >=1.16
