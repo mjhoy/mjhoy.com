@@ -3,7 +3,7 @@
 set -e
 
 cabal configure --disable-library-profiling \
-                --disable-executable-profiling \
+                --disable-profiling \
                 --enable-shared \
                 --enable-library-vanilla \
                 --enable-executable-dynamic
