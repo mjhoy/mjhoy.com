@@ -19,3 +19,7 @@ executable blog
   build-depends:     base ==4.*
                    , hakyll ==4.*
                    , pandoc >=1.16
+                   , filepath >=1.4
+                   , time >=1.6
+                   , time-locale-compat >=0.1
+                   , hxt >=9.3

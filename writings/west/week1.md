@@ -1,6 +1,7 @@
 ---
 title: "Week 1: The Mississippi to the Missouri"
 date: June 21, 2016
+linkTitle: "Week 1"
 ---
 
 ![](/images/west/P1030132.jpg)

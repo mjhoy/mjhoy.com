@@ -1,6 +1,7 @@
 ---
 title: "Week 2: The Black Hills"
 date: June 28, 2016
+linkTitle: "Week 2"
 ---
 
 ![](/images/west/P1030401.jpg)
