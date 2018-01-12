@@ -15,7 +15,11 @@ cabal-version:       >=1.8
 
 executable blog
   main-is:           Main.hs
-  -- other-modules:
+  other-modules:     Bike
+                   , Journal
+                   , Post
+                   , Static
+                   , Writings
   build-depends:     base ==4.*
                    , hakyll ==4.*
                    , pandoc >=1.16
