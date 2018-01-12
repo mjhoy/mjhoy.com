@@ -1,27 +1,19 @@
 mjhoy.com
 =========
 
-A program that generates my website.
+My website.
 
 
 HACKING
-        You will need GHC and cabal. I use nix to install these
-        things. Once you have a working nix install, you can add a
-        line such as this to your config.nix:
+        Easy. Use nix: https://nixos.org.
 
-          mjhoy_com = haskellPackages.callPackage ~/path/to/mjhoy.com {};
+        Run `nix-shell` for a build environment. Use the shell-osx.nix
+        file if you're on OSX (it adds Cocoa as a dependency, required
+        for hsevents I believe.)
 
-        Then to step into an environment with the proper tools installed,
-
-          $ nix-shell '<nixpkgs>' -A mjhoy_com
-
-        This will install GHC, cabal, and the necessary haskell
-        dependencies (Hakyll, etc.) At this point you can run:
-
-          $ cabal build; cabal run -- -h
-
-        and so on. You can run the `configure-dev` script first to
-        make cabal link a little more quickly.
+        $ cabal build
+        $ cabal run build   # this generates the site.
+        $ cabal run preview # development server.
 
 DEPLOY
         Easy. Simply `rsync` the _site directory up to a server somewhere.
