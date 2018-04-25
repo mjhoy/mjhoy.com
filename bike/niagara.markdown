@@ -4,7 +4,7 @@ date: June 27, 2013
 from: Bowling Green, Ohio
 ---
 
-![](/images/biking/P1180041.jpg)
+![\ ](/images/biking/P1180041.jpg)
 
 The route continues west, out of the Adirondacks, down the long slope of the Tug
 Hill cuesta toward Lake Ontario.  The names of towns have unusual

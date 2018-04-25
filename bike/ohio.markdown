@@ -56,7 +56,7 @@ town; get into camp for shelter; get to where I’m going before dark). I am
 overwhelmed by a goal, moving from point A to B. This is the most unpleasant way
 to ride a bicycle.
 
-![](/images/biking/P1180227.jpg)
+![\ ](/images/biking/P1180227.jpg)
 
 The second kind of riding is not really riding at all, because I forget that’s
 what I’m doing. The bicycle is no longer a tool to get from A to B. It is

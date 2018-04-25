@@ -41,20 +41,20 @@ and apparently well-known here.
 
 Eventually, five hours late, I make it to Ripoll.
 
-![](/images/barca/10122014-P1200945.jpg)
+![\ ](/images/barca/10122014-P1200945.jpg)
 
 Ripoll is a small town in the foothills of the Pyrenees. Here I visit
 the Benedectine monastery Santa Maria de Ripoll.
 
-![](/images/barca/10122014-P1010011.jpg)
+![\ ](/images/barca/10122014-P1010011.jpg)
 
-![](/images/barca/10122014-P1010016.jpg)
+![\ ](/images/barca/10122014-P1010016.jpg)
 
-![](/images/barca/10122014-P1200913.jpg)
+![\ ](/images/barca/10122014-P1200913.jpg)
 
-![](/images/barca/10122014-P1200923.jpg)
+![\ ](/images/barca/10122014-P1200923.jpg)
 
-![](/images/barca/10122014-P1200935.jpg)
+![\ ](/images/barca/10122014-P1200935.jpg)
 
 I have breakfast at the hotel, _café con leche_, toasted slices of
 bread coated with tomato juice (a Catalan favorite) and a basket full
@@ -71,11 +71,11 @@ pass. Four or five cars pass me in as many hours. I clamber up an
 outcrop at the top of the pass to take this photo. The only noise in
 the still air is cattle bells clanging in the distance.
 
-![](/images/barca/10122014-P1200970.jpg)
+![\ ](/images/barca/10122014-P1200970.jpg)
 
-![](/images/barca/10122014-P1200977.jpg)
+![\ ](/images/barca/10122014-P1200977.jpg)
 
-![](/images/barca/10122014-P1200991.jpg)
+![\ ](/images/barca/10122014-P1200991.jpg)
 
 The first thing I notice about Olot is the smog, hanging low over the
 town, punctured by the extinct volcanoes all over the valley.
@@ -105,9 +105,9 @@ Olot, for work. Six months ago. But now it's very bad. I don't know if
 I'm gonna have a job much longer. Some days they call me in, some days
 no. I don't know when I'm gonna work next.
 
-![](/images/barca/10122014-P1200997.jpg)
+![\ ](/images/barca/10122014-P1200997.jpg)
 
-![](/images/barca/11122014-P1210032.jpg)
+![\ ](/images/barca/11122014-P1210032.jpg)
 
 Manel bikes with me down the valley a little, and points me toward
 the mountains. You go ahead, he says, I have to get back. Maybe soon I
@@ -119,9 +119,9 @@ two. Some day I'll bike or walk that.
 
 I leave Manel and bike up the mountain.
 
-![](/images/barca/11122014-P1210066.jpg)
+![\ ](/images/barca/11122014-P1210066.jpg)
 
-![](/images/barca/11122014-P1210074.jpg)
+![\ ](/images/barca/11122014-P1210074.jpg)
 
 The next day I leave Olot and continue to Girona. Most of the route is
 on an old railway trail, part of the _vias verdes_ network in
@@ -131,13 +131,13 @@ much of the way.
 I stop in a village along the way for lunch, and have squid with pesto
 and delicious fried potatoes called _patates d'Olot_.
 
-![](/images/barca/12122014-P1210090.jpg)
+![\ ](/images/barca/12122014-P1210090.jpg)
 
-![](/images/barca/12122014-P1210093.jpg)
+![\ ](/images/barca/12122014-P1210093.jpg)
 
-![](/images/barca/IMG_0086.jpg)
+![\ ](/images/barca/IMG_0086.jpg)
 
-![](/images/barca/12122014-P1210102.jpg)
+![\ ](/images/barca/12122014-P1210102.jpg)
 
 In Girona the trip takes an unexpected turn. I meet Pau, who invites me
 to stay at his house to have dinner with his wife. The first floor of
@@ -155,13 +155,13 @@ morning to teach me to build igloos.
 
 We leave at 7 so that we have enough light.
 
-![](/images/barca/13122014-P1210106.jpg)
+![\ ](/images/barca/13122014-P1210106.jpg)
 
-![](/images/barca/13122014-P1210108.jpg)
+![\ ](/images/barca/13122014-P1210108.jpg)
 
-![](/images/barca/13122014-P1210118.jpg)
+![\ ](/images/barca/13122014-P1210118.jpg)
 
-![](/images/barca/13122014-P1210128.jpg)
+![\ ](/images/barca/13122014-P1210128.jpg)
 
 There isn't too much snow but we make do with what has collected in a
 ditch. Pau lets me place the blocks. I do an OK job: the igloo stands,
@@ -170,9 +170,9 @@ but it looks a bit lopsided.
 Pau makes lunch, ramen with tuna fish, and espresso, in a beautiful little
 portable espresso maker.
 
-![](/images/barca/13122014-P1210144.jpg)
+![\ ](/images/barca/13122014-P1210144.jpg)
 
-![](/images/barca/13122014-P1210173.jpg)
+![\ ](/images/barca/13122014-P1210173.jpg)
 
 France is just across the valley, under lenticular clouds. Some day
 I'll return and take a proper bike trip over the mountains, perhaps

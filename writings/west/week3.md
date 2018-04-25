@@ -4,7 +4,7 @@ linkTitle: "Week 3"
 date: July 13, 2016
 ---
 
-![](/images/west/P1030582.jpg)
+![\ ](/images/west/P1030582.jpg)
 
 
 **Day 15 &mdash; June 27**
@@ -52,7 +52,7 @@ series of small clouds in the distance. Snowcaps! The Bighorns emerge
 from the haze as I get closer and then a dramatic view as I descend
 into the valley. Big, broad, cutting a sharp line from the basin.
 
-![](/images/west/P1030527.jpg)
+![\ ](/images/west/P1030527.jpg)
 
 In Buffalo I stay at a campground, the Mountain View, which has a
 special price for passing bicycle tourists. I meet Allen, who works
@@ -135,7 +135,7 @@ fifteen miles or so of grades around 7 and 8 percent. I have shorts
 and two top layers on and when I stop climbing I'm cold. The heat of
 South Dakota is a fading memory.
 
-![](/images/west/P1030557.jpg)
+![\ ](/images/west/P1030557.jpg)
 
 I take it slowly and little by little make progress up the slope. The
 long climb appears to end, but I'm not even close to the pass. A
@@ -148,9 +148,9 @@ mosiac of purple and green. I eat my third banana of the morning with
 some peanut butter. Traffic picks up a little.  The rocky peaks of
 Bighorn and Darton only occasionally come into view above the trees.
 
-![](/images/west/P1030574.jpg)
+![\ ](/images/west/P1030574.jpg)
 
-![](/images/west/P1030560.jpg)
+![\ ](/images/west/P1030560.jpg)
 
 Thirty million years ago the Rockies in Wyoming were buried, in their
 own eroded sediment and volcanic ash and sand from the west, nearly to
@@ -173,7 +173,7 @@ Canyon. The highway rides high along the northern wall. Above me are
 enormous sandstone outcrops. It is a gentle meander down to Ten
 Sleep. The best kind of sign announces: 6% grade, next 18 miles.
 
-![](/images/west/P1030618.jpg)
+![\ ](/images/west/P1030618.jpg)
 
 Behind me, thunderheads bloom, bright white under the sun. I don't
 have to worry: shelter is to the west, and it's all downhill. This is
@@ -182,7 +182,7 @@ three different groups. Some coming from Oregon, some Washington, some
 Montana. One couple is headed to Minnesota. Apparently they had
 clustered in Ten Sleep waiting for a clear day to attempt the pass.
 
-![](/images/west/P1030668.jpg)
+![\ ](/images/west/P1030668.jpg)
 
 I stop and talk to a few. One asks me if I had heard about the cyclist
 killed by a grizzly in Glacier, just a few days ago. I had not.
@@ -198,7 +198,7 @@ old farmer who's here for coffee. I butt in (fascinated with Wyoming
 geology) and end up buying an extra copy of the Roadside Geology from
 them.
 
-![](/images/west/P1030685.jpg)
+![\ ](/images/west/P1030685.jpg)
 
 It's a 53 mile ride to Greybull, heading north up a river
 valley. Storm clouds pass west to east in the distance, and more
@@ -221,7 +221,7 @@ thunderstorms which roll across the basins every afternoon. The
 tradeoff is that packing up in the morning feels rushed. I'll even
 skip coffee if the forecast looks particularly bad.
 
-![](/images/west/P1030695.jpg)
+![\ ](/images/west/P1030695.jpg)
 
 I make it to Cody before the winds howl, and they do howl all
 afternoon. A few storms roll through. It's the 3rd of July in a
@@ -256,4 +256,4 @@ My attention moves beyond the arena to a different performance. A rip
 in the clouds, a storm coming down from the Absarokas, a body of rain,
 wisps and tendrils, glowing blue and gold under a setting sun.
 
-![](/images/west/P1030738.jpg)
+![\ ](/images/west/P1030738.jpg)

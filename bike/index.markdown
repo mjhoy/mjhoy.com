@@ -29,7 +29,7 @@ it was too small.
 
 Well, I hope you get the idea:
 
-![](/images/biking/route.jpg)
+![\ ](/images/biking/route.jpg)
 
 I have a request. If you, or good friends of yours, live near a part of this
 route, and would be interested in hosting me, please [put us in touch!][email]

@@ -4,7 +4,7 @@ date: June 28, 2016
 linkTitle: "Week 2"
 ---
 
-![](/images/west/P1030401.jpg)
+![\ ](/images/west/P1030401.jpg)
 
 
 **Day 8 — June 20** The motel hosts breakfast in the office, around a
@@ -59,7 +59,7 @@ the soil.  The storms head east and the billowing thunderheads catch
 the setting sun. As the light dims in the dusk I watch the lightning
 strobe in the distance.
 
-![](/images/west/P1030220.jpg)
+![\ ](/images/west/P1030220.jpg)
 
 
 **Day 10** A strong north wind howls all night, gusting up to 40mph. I
@@ -72,9 +72,9 @@ up now. The entire landscape has transformed: severe, either nearly
 flat and walkable or vertical and crumbling, towers of strata sculpted
 by erosion.
 
-![](/images/west/P1030260.jpg)
+![\ ](/images/west/P1030260.jpg)
 
-![](/images/west/P1030243.jpg)
+![\ ](/images/west/P1030243.jpg)
 
 In the middle of the day I climb the steep, dusty soil to the high
 prairie, then walk through the grasses and watch out for cacti. The
@@ -119,7 +119,7 @@ through the dark spires in peace. This is how to see the badlands: on
 a bike, early in the morning, before the sun, heat, and mobs of
 tourists.
 
-![](/images/west/P1030315.jpg)
+![\ ](/images/west/P1030315.jpg)
 
 I exit the park, and head back to I90. I take the interstate for
 twenty miles or so, until the next service road. A tailwind develops
@@ -151,7 +151,7 @@ gorge. Bighorn sheep watch us eat dinner from a nearby hill. They walk
 right below us, Sherry says, pointing off the railing. But that's a
 cliff! I know, and I have no idea how they do it.
 
-![](/images/west/P1030347.jpg)
+![\ ](/images/west/P1030347.jpg)
 
 
 **Day 12** Packing up my bike, Fred wonders what it all weighs. I'm
@@ -164,7 +164,7 @@ recumbent. It looks nice, easy on the back. We part ways at Norris
 Peak road, and I bike on into the hills and canyons of the Black
 Hills.
 
-![](/images/west/P1030354.jpg)
+![\ ](/images/west/P1030354.jpg)
 
 At some point I pull off on an old trail and relax under a tree. It's
 nearly impossible to see me from the road, but a car stops right in
@@ -203,13 +203,13 @@ Precambrian rock, and the high walls it has cut through are limestone
 and shale, much with a red and pink tint. I swerve to avoid cars
 parked by the hundreds along the road for trout fishing.
 
-![](/images/west/P1030420.jpg)
+![\ ](/images/west/P1030420.jpg)
 
 The air clears in Spearfish. Heading north, I can see far to the
 origin of the smoke, a wildfire on the top of a mountain a few miles
 off.
 
-![](/images/west/P1030426.jpg)
+![\ ](/images/west/P1030426.jpg)
 
 I spend the night in Belle Fourche at a quiet campground.
 
@@ -223,7 +223,7 @@ sun. It's 7am when I pass into Wyoming.
 I arrive at Devil's Tower later in the day. It's unlike anything I've
 seen. I take quite a few photos, biking and hiking around it.
 
-![](/images/west/P1030470.jpg)
+![\ ](/images/west/P1030470.jpg)
 
 Enormous hexagonal columns reach up into the sky. Devil's Tower an
 intrusion of magma into the surrounding softer sedimentary rock, which
@@ -234,7 +234,7 @@ There appears to be a slight twist at the base visible from the
 western side, as though a giant hand reached down and, grasping the
 upper half of the tower, cranked slightly counter-clockwise.
 
-![](/images/west/P1030475.jpg)
+![\ ](/images/west/P1030475.jpg)
 
 I stay at Frank Sander's compound. Take the second left once you're in
 the park, he tells me on the phone. There aren't any signs. If you get

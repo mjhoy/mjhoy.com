@@ -29,7 +29,7 @@ and then straightens, opening out. Rock Creek valley was scooped out
 by a glacier into a long U shape. The only apparent way out is to go
 back.
 
-![](/images/west/P1030792.jpg)
+![\ ](/images/west/P1030792.jpg)
 
 Undaunted, the road runs straight up the wall in a series of
 switchbacks.  Whoever designed Beartooth Pass had more imagination
@@ -40,7 +40,7 @@ At some 9,000 feet elevation there is a rest area. A biker who passed
 me earlier, pumping his fists, finds me, full of enthusiasm for my
 climb. I eat some bananas, fending off impudent squirrels.
 
-![](/images/west/P1030822.jpg)
+![\ ](/images/west/P1030822.jpg)
 
 Up I go. A mountain goat stands on an outcrop, watching me. The
 switchbacks end on a high plateau covered in grasses and
@@ -61,7 +61,7 @@ progress.
 
 In the distance, a small, sharp glacial horn: the Bear's Tooth.
 
-![](/images/west/P1030832.jpg)
+![\ ](/images/west/P1030832.jpg)
 
 I reach a false summit and descend for a mile or so before climbing
 again. More switchbacks. In the high wind I crawl up one section, and
@@ -73,13 +73,13 @@ photo. 10,947 feet. The rocks behind me are arranged in geometric
 patterns, naturally, from the constant thawing and freezing of the
 ground.
 
-![](/images/west/P1030840.jpg)
+![\ ](/images/west/P1030840.jpg)
 
 On the western slope of the plateau, the road twists around alpine
 lakes and meadows, rocky hills speckled with spruce, white patches of
 snow not yet melted.
 
-![](/images/west/P1030852.jpg)
+![\ ](/images/west/P1030852.jpg)
 
 I descend, falling at twenty miles an hour off the plateau into a high
 river valley, the Clark Fork Yellowstone. The pyramidal Pilot Peak of
@@ -131,7 +131,7 @@ into itself, beneath which lies a huge pool of magma. The land is
 getting weird. Across the canyon, a perfect line of dark columnar
 jointing is exposed, an ancient river of basalt.
 
-![](/images/west/P1030920.jpg)
+![\ ](/images/west/P1030920.jpg)
 
 I camp at Tower Falls next to Alessandra and Michele, Italians on a
 cycle tour through as many national parks as possible, headed south to
@@ -175,7 +175,7 @@ see the crags and snow of the Beartooth. To the south, where I'm
 headed, the Yellowstone cuts a gorge through hills and leads to a wide
 area of flat, forested land, as far as I can see: the caldera.
 
-![](/images/west/P1030952.jpg)
+![\ ](/images/west/P1030952.jpg)
 
 There are bubbling, sulfuric hot springs along the road. When I arrive
 at Yellowstone Lake parts of the shore are steaming. A cave that
@@ -232,9 +232,9 @@ along the road for miles. On the boardwalks, wind washes us in the
 steam from hot springs, stinking of sulfur, summoning a great
 collective groan.
 
-![](/images/west/P1040015.jpg)
+![\ ](/images/west/P1040015.jpg)
 
-![](/images/west/P1040024.jpg)
+![\ ](/images/west/P1040024.jpg)
 
 I head west, out of the park, happy to be leaving. In the distance are
 the rugged Henrys Lake mountains, the Contental Divide, along which
@@ -242,7 +242,7 @@ runs the Montana-Idaho border.
 
 Montana. I cross the border and exit Yellowstone.
 
-![](/images/west/P1040028.jpg)
+![\ ](/images/west/P1040028.jpg)
 
 
 **Day 27**
@@ -269,7 +269,7 @@ up.
 On top of the debris pile sit two enormous boulders. They were once
 sitting on the opposite ridge.
 
-![](/images/west/P1040066.jpg)
+![\ ](/images/west/P1040066.jpg)
 
 A strong, constant south wind blows in my favor today. The bike
 practically rides itself to Ennis, Montana. I camp at an RV park.

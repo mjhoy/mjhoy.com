@@ -4,7 +4,7 @@ date: June 17, 2013
 from: Rochester, New York
 ---
 
-![](/images/biking/P1170808.jpg)
+![\ ](/images/biking/P1170808.jpg)
 
 There are trees downed everywhere. Tall white birch, littering the forest of
 younger white and yellow birch. They are strewn in the same general direction;
@@ -58,7 +58,7 @@ mug.
 “What’s the point, then?”<br>
 “It’s interesting. It’s a relic of the atomic era.”
 
-![](/images/biking/P1170869.jpg)
+![\ ](/images/biking/P1170869.jpg)
 
 In the archives of the Saranac Lake Free Library I find a collection of old
 elementary school lunch menus, handwritten, each menu accompanied by an
@@ -76,9 +76,9 @@ Green Bean Salad, Milk, Pineapple Tidbits_. Gemini 9 was splashing down.
 The librarian tells me it was the school janitor who, every day, drew the
 menus.
 
-![](/images/biking/P1170867.jpg)
+![\ ](/images/biking/P1170867.jpg)
 
-![](/images/biking/P1170861.jpg)
+![\ ](/images/biking/P1170861.jpg)
 
 “He didn’t know, but his wife saved every one of them. When he died she had
 boxes full.”

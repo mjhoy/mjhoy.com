@@ -22,7 +22,7 @@ silkscreen impression of Ed’s smiling face.
 
 “I think around here, people would recognize who it is.”
 
-![](/images/biking/P1170669.jpg)
+![\ ](/images/biking/P1170669.jpg)
 
 (In case it isn’t clear, I am not in Canada, on my originally planned route. I
 am making my way through Vermont, coming from the White Mountains in New
@@ -37,7 +37,7 @@ delicious. Dave drinks two or three glasses of goat’s milk a day.
 “This goat cheese is the trade-off you make for living out here and not having a
 lot of human contact.”
 
-![](/images/biking/P1170643.jpg)
+![\ ](/images/biking/P1170643.jpg)
 
 A week ago it was snowing in Barnet, but today it is 87 degrees and humid. I am
 glad for a few day’s rest from biking, and I am avoiding the warm front. The
@@ -50,7 +50,7 @@ the garden. I hold them briefly in my hand before putting them down in the
 shade, which they seem to like. I check on them fifteen minutes later, and they
 are still there, attached.
 
-![](/images/biking/P1170642.jpg)
+![\ ](/images/biking/P1170642.jpg)
 
 While we’re in the woods cutting down small trees for the tomato trellis, we find a
 patch of morels. They are a little past prime and taste like ordinary mushrooms.
@@ -75,7 +75,7 @@ While the weather is mostly calm, I learn later that towns several miles to the
 west are hit hard with an unexpected microburst. The winds are so severe they
 reportedly remove a roof from a house.
 
-![](/images/biking/P1170662.jpg)
+![\ ](/images/biking/P1170662.jpg)
 
 Here, nature is immediate, confronted directly by the people who live in the
 area. Fewer middlemen are providing the necessities of life. Woodlands are

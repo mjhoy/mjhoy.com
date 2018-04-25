@@ -4,7 +4,7 @@ date: June 21, 2016
 linkTitle: "Week 1"
 ---
 
-![](/images/west/P1030132.jpg)
+![\ ](/images/west/P1030132.jpg)
 
 
 **Day 1 — June 13, 2016** I leave the lovely Omega house, Minneapolis,
@@ -38,7 +38,7 @@ tires, tubing, hay. A cat scurries across the yard. Rain seems to let
 up, but then gets heavy again. Finally the thunder dies away and I
 start off in the rain, changing into my swimsuit first.
 
-![](/images/west/P1030026.jpg)
+![\ ](/images/west/P1030026.jpg)
 
 In the afternoon the sky looks bad again. Cumulonimbus peaks over dark
 horizons. Clouds moving fast west. Dark sky ahead. Soon I hear the
@@ -72,9 +72,9 @@ park. Below the cliff, a large number of bison bones have been
 found. One theory is that Native Americans would hunt them by
 stampeding them off the cliff.
 
-![](/images/west/P1030072.jpg)
+![\ ](/images/west/P1030072.jpg)
 
-![](/images/west/P1030066.jpg)
+![\ ](/images/west/P1030066.jpg)
 
 
 **Day 4** Temps will be hitting the 90s today. I have a short 30 miles
@@ -100,7 +100,7 @@ traffic getting out of the city. Branches and some trees are down from
 last night. I wind my way down to Highway 44, which cuts a straight
 line west to the Missouri. And I mean <em>straight</em>.
 
-![](/images/west/P1030090.jpg)
+![\ ](/images/west/P1030090.jpg)
 
 My plan had been to end the day in Parkston. When I arrive there
 around noon, it's not much of a town. There are two places to get a
@@ -114,7 +114,7 @@ wind here, so I gear up for another 45 miles to the next town,
 Platte. All told I bike 120 miles today. There are a few pretty river
 valleys on the way. Mostly, though, it's corn.
 
-![](/images/west/P1030091.jpg)
+![\ ](/images/west/P1030091.jpg)
 
 South Dakota presents a few problems for a cyclist. There is no
 shade. There are simply no trees by the side of the road. You might
@@ -135,14 +135,14 @@ sun breaks behind me. There's little traffic except for trucks pulling
 boats to the river. I coast down into the river valley as the sun hits
 the hills on the far shore.
 
-![](/images/west/P1030113.jpg)
+![\ ](/images/west/P1030113.jpg)
 
 Crosswind from the south has picked up. Across the mile-long bridge
 over the Missouri it roars. I have to walk my bike across to avoid
 falling over. Whitecaps dance north. I look down and
 see... fish. Hundreds, thousands. No idea what they are.
 
-![](/images/west/P1030128.jpg)
+![\ ](/images/west/P1030128.jpg)
 
 West of the Missouri there are hills. <em>Big</em> hills. Over the
 course of the day I will have climbed more elevation than when I
@@ -186,4 +186,4 @@ sun illuminates plumes of thunderheads to the distant east. I hear the
 next day there were storms in Sioux Falls. That's looking two days
 away.
 
-![](/images/west/P1030137.jpg)
+![\ ](/images/west/P1030137.jpg)
