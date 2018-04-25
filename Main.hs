@@ -28,7 +28,7 @@ main = hakyll $ do
           >>= loadAndApplyTemplate "templates/photo.html" defaultContext
 
   match "stylesheets/*.css" $ do
-    route $ idRoute
+    route idRoute
     compile copyFileCompiler
 
   match "templates/*" $ compile templateCompiler
