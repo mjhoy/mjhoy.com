@@ -23,3 +23,14 @@ body{margin:0;padding:0;font-family:Georgia;font-size:14px;line-height:1.4em}pre
     right: 20px;
 }
 
+figure {
+  margin: 0;
+}
+figure img { max-width: 650px; }
+figcaption {
+  margin:-2px 0 10px;
+  font-family:Helvetica;
+  font-size:0.7em;
+  font-weight:400;
+  color:#555;
+}
