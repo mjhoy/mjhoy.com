@@ -16,6 +16,8 @@ title: Home
 
 ### Writing
 
+[Minneapolis to Seattle][bike3]
+
 [A short bike trip in Catalunya][bike2]
 
 [Maine to Minnesota][bike]
@@ -41,6 +43,7 @@ title: Home
 [source]:https://github.com/mjhoy/mjhoy.com
 [bike]:bike
 [bike2]:writings/misc/catalunya.html
+[bike3]:writings/west/week1.html
 [journ1]:journal/2016/02/nix.html
 [journ2]:journal/2016/02/nix-glibc.html
 [journ3]:journal/2016/02/nix-glibc-2.html
