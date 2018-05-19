@@ -81,19 +81,16 @@ section#content header h2 {
 
 /* footer */
 footer#main {
-  font-family: Helvetica, sans-serif;
+  font-style: italic;
   font-size:   11px;
-
-  text-transform: uppercase;
-  letter-spacing: 1px;
 
   width:         600px;
   margin-left:   43px;
-  margin-top:    2em;
+  margin-top:    5em;
   margin-bottom: 2em;
-  padding-top:   1em;
+  padding-top:   0.5em;
 
-  border-top: 1px solid #ccc;  
+  border-top: .5px solid #777;  
 }
 
 footer#main p {
