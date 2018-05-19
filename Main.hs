@@ -16,7 +16,6 @@ main = hakyll $ do
   -- images/
   -- js/
   -- LICENSE
-  -- resume.html
   staticRoutes
 
   -- posts/
@@ -32,11 +31,6 @@ main = hakyll $ do
     compile copyFileCompiler
 
   match "templates/*" $ compile templateCompiler
-
-  match "portfolio.markdown" $ do
-    route $ setExtension "html"
-    compile $ pandocCompiler
-          >>= loadAndApplyTemplate "templates/portfolio.html" defaultContext
 
   match "index.markdown" $ do
     route $ setExtension "html"
