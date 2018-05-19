@@ -1,6 +1,6 @@
 ---
 title: NixOS and glibc
-date: 2016/02/17
+date: 2016-02-17
 category: nix
 ---
 

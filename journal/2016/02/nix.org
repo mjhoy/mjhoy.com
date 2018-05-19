@@ -1,6 +1,6 @@
 ---
 title: Nix packages, a simple C library example
-date:  2016/02/13
+date:  2016-02-13
 categories: nix, programming
 ---
 

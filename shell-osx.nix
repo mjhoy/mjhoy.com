@@ -5,7 +5,7 @@ let
   inherit (nixpkgs) pkgs;
 
   f = { mkDerivation, base, filepath, hakyll, hxt, pandoc, stdenv
-      , time, time-locale-compat
+      , lens, time, time-locale-compat
       }:
       mkDerivation {
         pname = "blog";
@@ -18,7 +18,7 @@ let
           pkgs.darwin.apple_sdk.frameworks.Cocoa
         ];
         executableHaskellDepends = [
-          base filepath hakyll hxt pandoc time time-locale-compat
+          base filepath hakyll hxt pandoc time time-locale-compat lens
         ];
         homepage = "http://mjhoy.com";
         description = "mjhoy.com website";
