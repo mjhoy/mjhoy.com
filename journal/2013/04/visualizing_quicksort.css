@@ -1,0 +1,17 @@
+#container {
+  position: relative;
+}
+#regenerate {
+  position: absolute;
+  top: 8px; left: 5px;
+  border: 1px solid #ccc; background-color: #f9f9f9;
+  cursor: pointer;
+}
+#regenerate:hover { background-color: #ccc; }
+#arrayVal { position: absolute; top: 10px; left: 70px; border: none; border-bottom: 1px solid #000;}
+text { font-family: "Futura", sans-serif; font-size: 11px;}
+text.unsorted { fill: #aaa; } text.sorted { fill: #000; }
+tspan.pivot { fill: #AC0E0E; font-weight: bold;}
+circle.unsorted { fill: #aaa; }
+circle.sorted { fill: #000; }
+path.link { stroke: #000; fill: none; }

@@ -1,0 +1,51 @@
+---
+title: Visualizing quicksort
+date: 2013-04-05
+categories: javascript, d3
+extra_css: visualizing_quicksort.css
+---
+
+<div id="container">
+  <button id="regenerate">Shuffle</button>
+  <form onSubmit="return getUserValue()">
+    <input type="text" id="arrayVal" placeholder="1,2,3,etc"/>
+    <input type="submit" style="display: none;">
+  </form>
+</div>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="visualizing_quicksort.js"></script>
+
+<p>
+  There are three parts to quicksort. For an array, (1) choose a
+  “pivot” item. Using the pivot, (2) partition the array around the
+  pivot, such that the array to the left of the pivot is less than the
+  pivot; the array to the right of the pivot is greater than the
+  pivot. Finally, (3) invoke quicksort recursively on the left and
+  right partitions.
+</p>
+
+
+<p>
+  Recursion can be tricky to understand. Using d3.js, we can represent
+  each recursive call to quicksort as a node, whose parent is the
+  array of which it is a partition, and whose children are its
+  partitions. The base case is when the array is only one element —
+  this is the state of the leaf nodes.
+</p>
+
+<p>
+  Pivot elements are highlighted red. Sorted arrays have a black
+  circle node; unsorted are light gray. Choosing the pivot is
+  simplified: the first element is picked.
+</p>
+
+<p>
+  The graph (once sorted) often has an interesting property. If you
+  read top to bottom, left to right, following the pivot elements
+  (those highlighted in red), you will read the final sorted array.
+</p>
+
+<p>
+  The layout is generated using d3.layout.tree.
+</p>
