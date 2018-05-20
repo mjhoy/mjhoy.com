@@ -40,6 +40,12 @@ main = hakyll $ do
 
   match "templates/*" $ compile templateCompiler
 
+  match "about.md" $ do
+    route $ setExtension "html"
+    compile $ pandocCompiler
+          >>= loadAndApplyTemplate "templates/page.html" defaultContext
+          >>= loadAndApplyTemplate "templates/layout.html" defaultContext
+
   journalRoutes
 
   index
