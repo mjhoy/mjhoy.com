@@ -106,9 +106,9 @@
     });
     svg = d3.select('#chart-1').append("svg:svg").attr("width", w).attr("height", h);
     setup_keys(svg);
-    return d3.json("../js/mcas/mass-geo.json", function(json) {
+    return d3.json("/js/mcas/mass-geo.json", function(json) {
       svg.selectAll("path").data(json.features).enter().append("svg:path").attr("d", path).attr("class", "state");
-      return d3.json("../js/mcas/g10_all.json", function(data) {
+      return d3.json("/js/mcas/g10_all.json", function(data) {
         svg.selectAll("circle.point").data(data).enter().append("svg:circle").attr('class', 'point').attr('cx', function(d) {
           var ll;
           if (d["denorm"] && d["denorm"]["geometry"]) {

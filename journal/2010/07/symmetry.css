@@ -1,0 +1,27 @@
+#sym-post #page_1_box,
+#sym-post #page_2_box,
+#sym-post #page_4_box {
+  margin-top: -3em;
+  position: absolute;
+  left: 590px;
+}
+#sym-post .container {
+  position: relative;
+}
+
+#sym-post pre.clickable {
+  color:#761F9E;
+  font-weight:bold;
+  cursor:pointer;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -o-user-select:none;
+  user-select:none;
+}
+.aside-span {
+  position: absolute;
+  left: 620px;
+  width: 220px;
+  top: 220px;
+}

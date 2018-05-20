@@ -22,6 +22,8 @@ executable blog
                    , Writings
   build-depends:     base ==4.*
                    , hakyll ==4.*
+                   , lens >=4.16
+                   , containers >=0.5.10
                    , pandoc >=1.16
                    , filepath >=1.4
                    , time >=1.6

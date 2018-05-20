@@ -1,21 +1,12 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <title>mjhoy.com - $title$</title>
-
-    <link rel="stylesheet" type="text/css" href="/stylesheets/main-old.css" />
-  </head>
-
-  <body>
-    <header id="main" class="home">
-      <h1>
-        Michael Hoy | <a href="mailto:mjh@mjhoy.com">mjh@mjhoy.com</a>
-      </h1>
-    </header>
-
-    <section id="content" class="index">
-      $body$
-    </section>
-  </body>
-</html>
+<section id="home">
+  <section id="content" class="index">
+    $for(years)$
+    <h2>$year$</h2>
+    <ul>
+      $for(entries)$
+      <li><a href="$url$">$title$</a></li>
+      $endfor$
+    </ul>
+    $endfor$
+  </section>
+</section>

@@ -1,0 +1,303 @@
+---
+title: Symmetry (and higher-order functions)
+date: 2010-07-03
+categories: nix
+extra_css: symmetry.css
+---
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/underscore.js"></script>
+<script type="text/javascript" src="/js/symm/raphael.js"></script>
+<script type="text/javascript" src="/js/symm/_symmetry.raphael.js"></script>
+<script type="text/javascript" src="/js/symm/_article.js"></script>
+<div id="sym-post">
+
+  <section class="container">
+    <div class="span-8">
+
+      <header>
+        <h1>Repetition and iteration</h1>
+      </header>
+
+      <p>
+        Let&rsquo;s say you want to call some block of code three times. Let&rsquo;s say
+        that block of code happens to rotate a rectangle. OK, well, here’s some code that
+        runs if you click it:
+      </p>
+
+      <div id="page_1_box">
+
+      </div>
+
+      <pre class="clickable" id="page_1_rotate_click">
+rect.rotate(60);</pre>
+
+      <p>
+        Do it three times!
+        (This is the real JavaScript, by the way, using the <a href="http://raphaeljs.com">Raphael</a> JavaScript
+        vector graphics library.)
+      </p>
+      <p>
+        That’s the equivalent of
+      </p>
+      <pre>
+rect.rotate(60);
+rect.rotate(60);
+rect.rotate(60); </pre>
+      <p>
+        except that we get to see a nice spinning effect. Now, this repetition of code — as it is, just
+        hard-coded to repeat three times — could be captured in an iteration:
+      </p>
+      <pre>
+var i, n = 3;
+for (i = 0; i &lt; n; i++ ) {
+  rect.rotate(60)
+} </pre>
+      <p>
+        This code effectively says: “Set <code>i</code> to 0 and <code>n</code> to 3. If <code>i</code> is less
+        than <code>n</code>, rotate the rectangle,
+        and increment <code>i</code>. Repeat the ‘if’.”
+      </p>
+      <p>
+        If we wanted to rotate four times, we'd just need to change <code>n</code>.
+      </p>
+
+    </div><!-- span-8 -->
+  </section><!-- /container -->
+
+  <section class="container">
+    <div class="span-8">
+      <header>
+        <h1>Slightly more complex iteration</h1>
+      </header>
+
+      <p>
+        Now we want a rotation that applies
+        itself to a copy of the previously rotated rectangle. The magical function
+        that does this (implementation to be described below) can be clicked here:
+      </p>
+
+
+      <div id="page_2_box">
+
+      </div>
+      <pre class="clickable" id="page_2_magical_click">
+doSomethingMagical();</pre>
+      <p>
+        Again, let’s say three times is our goal. How would we implement this?
+      </p>
+      <p>
+        Hard-coded, it might look like this:
+      </p>
+      <pre>
+var rect1 = paper.rect(0, 0, 10, 10); // Make a rect
+var rect2 = paper.rect(0, 0, 10, 10).rotate(60); // Make a rect and rotate 60
+var rect3 = paper.rect(0, 0, 10, 10).rotate(120); // Make a rect and rotate 120 </pre>
+      <p>
+        Pretty ugly, and not very reusable. (What if we’d rather it be 30 degrees, not 40?)
+        An iterative procedure would look like:
+      </p>
+      <pre>
+var i, n = 3,
+    lastRect = paper.rect(0, 0, 10, 10),
+    currentRect;
+
+for (i = 0; i &lt; n; i ++) {
+  currentRect = lastRect.clone().rotate(60);
+  lastRect = currentRect;
+} </pre>
+      <p>
+        To understand this, you need to know that <code>clone</code> makes a new
+        object that has the attributes of its “master”, including rotation.
+      </p>
+      <p>
+        In English this iteration is something like (excluding the initial state of variables):
+        “If <code>i</code> is less than <code>n</code>, make a clone of <code>lastRect</code>
+        and rotate it by 60 degrees. Assign the variable <code>lastRect</code> to the new
+        clone, increment <code>i</code>, and repeat.”
+      </p>
+
+      <p>
+        Note that the iteration works by updating the variable
+        <code>lastRect</code> to point
+        to whatever the last rectangle created was, so that, when it loops for the
+        next time, it’s copying the <i>new</i> rectangle.
+      </p>
+    </div><!-- span-8 -->
+  </section>
+
+  <section class="container">
+    <div class="span-8">
+      <header>
+        <h1>Higher-order functions</h1>
+      </header>
+
+      <p>
+        The idea of iteratively applying a transformation to a graphic — and by
+        “iteratively” here I mean, as above, making copies as you go — isn’t really
+        tied to whether that transformation is a rotation or a translation or
+        whatever. Ideally, we could give a function (called “iterate” below)
+        a base object, the number of times to apply an iteration, and
+        the transformation function to run; e.g.
+      </p>
+      <pre>
+var rect = paper.rect(0, 0, 10, 10);
+var fn = function (obj) { obj.translate(20, 0); };
+
+iterate(rect, 3, fn); </pre>
+
+      <p>
+        Which would give us:
+      </p>
+
+      <div id="page_3_box">
+
+      </div>
+
+      <p>
+        JavaScript nicely lets us capture the transformation function as a variable
+        (“fn” above) and pass it as an argument to another function. The fact
+        that <code>iterate</code> accepts a function as an argument means it is
+        a “higher-order” function: a function which either accepts a function
+        as input or produces one as output.
+      </p>
+
+      <p>
+        So, what would the implementation of <code>iterate</code> look like?
+      </p>
+
+      <pre>
+var iterate = function(obj, n, fn) {
+  if (!(n > 0)) {
+    return;
+  }
+  newObj = obj.clone();
+  fn(newObj);
+  iterate(newObj, n - 1, fn);
+};
+      </pre>
+
+      <p>
+        It’s similar in many ways to the <code>for</code> loops above. In English:
+        “Return if <code>n</code> is not greater than 0. Make a clone of <code>obj</code>,
+        and call <code>fn</code> passing in the newly created clone as an argument.
+        Then <code>iterate</code> with the new object, 1 less than <code>n</code>,
+        and <code>fn</code>.”
+      </p>
+
+      <p>
+        Iterate calls itself repeatedly until <code>n</code> is 0, and each time
+        it does it creates a new object, transforming it.
+      </p>
+    </div>
+
+  </section>
+  <section class="container">
+    <div class="span-8">
+      <header>
+        <h1>Symmetry functions</h1>
+      </header>
+      <div id="page_4_box">
+
+      </div>
+      <p>
+        It’s possible, then, to describe <i>symmetries</i> of these vector objects
+        with some ease in JavaScript, though certain kinds of operations are much
+        more simply described as a procedure than others. Translating, like above, is easy.
+        “Pivoting” objects around a point is more difficult: it requires tracking that point
+        across function calls and determining its relation to the current
+        object with some trig functions.
+      </p>
+
+      <p>
+        With a bit more effort, it’s possible to wrap the symmetries produced in a object
+        that can, itself, iterate. For instance, let’s say we have the following peculiar shape,
+        produced by the following code:
+      </p>
+
+      <pre>
+var r = paper.partOfAnElizabethanStrap();
+      </pre>
+    </div><!-- .span-8 -->
+    <div class="span-8">
+
+      <div id="page_4_box_2">
+
+      </div>
+
+      <p>
+        Remember that <code>r</code> is the base Raphael object. Now we call <code>iterate</code>,
+        but note this is a different <code>iterate</code> than the one above:
+      </p>
+
+      <pre>
+var r1 = r.iterate(1, function() {
+  this.scale(-1, 1); // Reflect over y-axis
+  this.translate(100, 0);
+});
+      </pre>
+
+      <div id="page_4_box_3">
+
+      </div>
+
+      <p>
+        In this implementation of <code>iterate</code> I’m doing something special. It accepts a
+        number of iterations to perform and a function as its
+        arguments. The function is called in the context of the cloned objects, and so I apply the
+        transformations to <code>this</code>. The result of <code>iterate</code> I put in a variable
+        <code>r1</code>.
+      </p>
+      <p>
+        <code>r1</code> is <i>not</i> the cloned object that’s been moved and reflected. It’s the
+        group of both of those objects; the result of the iteration. And the iteration can itself be
+        iterated, which lets us say:
+      </p>
+
+      <pre>
+r2 = r1.iterate(1, function() {
+  this.rotateAround(180, 50, -45);
+  this.translate(-50, 0);
+});
+      </pre>
+
+      <div id="page_4_box_4">
+
+      </div>
+      <p>
+        This pivots and translates the symmetry group <code>r1</code>
+        as a whole. The “pivoting” is done by a method called <code>rotateAround</code>.
+        The result, which is all four objects, is stored in <code>r2</code>. To finish:
+      </p>
+      <pre>
+r3 = r2.iterate(4, function() {
+  this.translate(100, 0);
+});
+      </pre>
+
+      <div id="page_4_box_5">
+
+      </div>
+
+      <p style="margin-top: 1.5em;">
+        You can see my implementation of <code>iterate</code> at
+        <a href="https://github.com/mjhoy/symmetry-js/blob/master/src/symmetry.raphael.js">Github</a>.
+        (There’s also an implementation of <code>rotateAround</code>).
+        Note that it’s very
+        proof-of-concept and experimental now. There’s currently some bugs when using multiple
+        calls to <code>rotate</code> and <code>rotateAround</code> over iterations.
+        If only I knew my trig.
+      </p>
+    </div>
+    <div class="span-4 last aside-span">
+      <aside>
+        The “peculiar shape” is the reverse-engineering of a strap ornament pattern from Elizabethan
+        England. The figure above, demonstrating how elements might pivot, is from an Arabian tile design
+        pattern. Both were
+        found in the wonderful <em>Handbook of Regular Patterns</em> by Peter S. Stevens
+        (which more or less inspired this post).
+        <br>
+      </aside>
+    </div>
+  </section>
+</div>
