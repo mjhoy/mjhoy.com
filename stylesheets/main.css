@@ -21,25 +21,6 @@ code a {
   border-bottom: none;
 }
 
-#home header {
-  margin-left: 3em;
-  margin-top:  2em;
-  max-width: 600px;
-}
-header#home h1 {
-  font-family: Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  color: #777;
-}
-header#home h1 a {
-  color: #777;
-  border: none;
-}
-header#home h1 a:hover {
-  color: black;
-}
-
 #home #content ul {
   list-style: none;
   margin: 0 0 1em 0;
@@ -57,13 +38,54 @@ header#home h1 a:hover {
   margin-top: 2em;
   margin-bottom: 0.5em;
 }
-header#home img.si { width: 14px; padding-right: 3px; position: relative; top: 2px; }
 
-header#home .vert-bar {
+header#banner {
+  margin-left: 3em;
+  margin-top:  2em;
+  max-width: 600px;
+}
+header#banner h1 {
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #777;
+}
+header#banner h1 a {
+  color: #777;
+  border: none;
+}
+header#banner h1 a:hover {
+  color: black;
+}
+header#banner img.si { width: 14px; position: relative; top: 2px; }
+
+header#banner .vert-bar {
   font-size: 0.85em;
   color: black;
   position:relative; bottom:1px;
   padding: 0 2px;
+}
+
+header.main-header {
+  margin-left: 3em;
+  margin-top: 2em;
+  max-width: 600px;
+  font-family: Helvetica, sans-serif;
+}
+header.main-header h1 {
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 2em;
+}
+header.main-header h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size:   1em;
+  margin-bottom: 0;
+  margin-top: -0.5em;
+  color: #777;
 }
 
 /* content */
@@ -109,4 +131,53 @@ aside {
   font-family:Helvetica;
   font-size:0.85em;
   line-height:1.5em;
+}
+
+section#content header h1 {
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 1em;
+  font-weight: 500;
+  margin-top: 2em;
+}
+section#content header h2 {
+  margin-top: 0em;
+  font-size: 0.85em;
+  margin-bottom: 1.5em;
+}
+
+section#content h1 {
+  font-size: 0.85em;
+  font-weight: normal;
+  font-family: Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2em;
+}
+
+.aside {
+  font-family:Helvetica;
+  font-size:0.75em;
+  line-height:1.5em;
+  position: absolute;
+  margin-top: -8px;
+  left: 680px;
+  width: 200px;
+}
+
+div[rundoc-tangle],
+pre[rundoc-tangle] {
+  padding-left: 10px;
+  border-left: 2px solid #ccc;
+}
+div[rundoc-tangle="no"],
+pre[rundoc-tangle="no"] {
+  padding-left: 0;
+  border-left: none;
+}
+pre.example {
+  font-weight: bold;
+  background-color: #eee;
+  padding: 10px;
+  border: 1px solid #ccc;
 }

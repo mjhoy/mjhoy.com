@@ -16,11 +16,13 @@ journalRoutes = do
     route $ setExtension "html"
     compile $ pandocCompiler
           >>= loadAndApplyTemplate "templates/journal.html" journalCtx
+          >>= loadAndApplyTemplate "templates/layout.html" journalCtx
 
   match "journal/**.html" $ do
     route $ setExtension "html"
     compile $ getResourceBody
           >>= loadAndApplyTemplate "templates/journal.html" journalCtx
+          >>= loadAndApplyTemplate "templates/layout.html" journalCtx
 
   -- source code matching: just copy it over
   match ("journal/**" .&&. complement ("journal/**.org" .||. "journal/**.html")) $ version "raw" $ do

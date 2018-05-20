@@ -5,14 +5,31 @@
     <title>mjhoy.com - $title$</title>
 
     <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+
+    $if(extra_css)$
+    <link rel="stylesheet" type="text/css" href="$extra_css$" />
+    $endif$
   </head>
 
   <body>
+    <header id="banner">
+      <h1>
+        <a href="/">Michael Hoy</a>
+        &lt;<a href="mailto:mjh@mjhoy.com">mjh@mjhoy.com</a>&gt;
+        <br> <a href="/about.html">About</a>
+        <span class="vert-bar">|</span> <a href="http://twitter.com/mjhoy"><img src="/images/twitter.svg" class="si tw"/></a>
+        <span class="vert-bar">|</span> <a href="https://github.com/mjhoy"><img src="/images/github.svg" class="si"/></a>
+      </h1>
+    </header>
+
     $body$
   </body>
 
   <footer id="main">
     <p>
+      $if(date)$
+        Posted $date$.<br>
+      $endif$
       If you need to get in touch, please <a href="mailto:mjh@mjhoy.com">email</a>.<br>
       This site’s source code is available at
       <a href="https://github.com/mjhoy/mjhoy.com">github.com/mjhoy/mjhoy.com</a>.
