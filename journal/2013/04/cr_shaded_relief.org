@@ -1,0 +1,87 @@
+---
+title: Costa Rica shaded relief
+date: 2013-04-03
+extra_css: cr_shaded_relief.css
+categories: gdal, foo
+---
+
+#+BEGIN_HTML
+<div id="svg-container"></div>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v0.min.js"></script>
+<script src="cr_shaded_relief.js"></script>
+#+END_HTML
+
+This is an example of how to create a shaded relief raster with a vector map
+overlay (using SVG and d3.js).
+
+Step 1 was to create the raster. I used tiled GeoTiffs from the
+[[http://www2.jpl.nasa.gov/srtm/][SRTM project]] downloading four tiles that completed a map of Costa Rica. To
+combine the tiff files into a single raster with the correct projection and
+dimensions, I used =gdalwarp=:
+
+#+BEGIN_SRC sh
+gdalwarp \
+  -r lanczos \
+  -te -250000 -156250 250000 156250 \
+  -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0" \
+  -ts 960 0 \
+  srtm_19_10.tif \
+  srtm_20_10.tif \
+  srtm_19_11.tif \
+  srtm_20_11.tif \
+  relief.tiff
+#+END_SRC
+
+The =t_srs= option sets an albers equal area projection that will center on
+Costa Rica. The =te= option defines the extent of the map, using SRS
+coordinates. I don't fully understand how this works and used some trial and
+error. Note that the x/y has a ratio of 1.6, the same as the intended output
+resolution (960x600).
+
+The projection used here mirrors the projection set with =d3=:
+
+#+BEGIN_SRC javascript
+var projection = d3.geo.albers()
+  .center([0, 9.7])
+  .rotate([84.2,0])
+  .parallels([8, 11.5])
+  .scale(12240)
+  .translate([width / 2, height / 2]);
+
+#+END_SRC
+
+Step 2 is to create, from this GeoTiff file, two images: one, grayscale, that
+represents "shade" — given a certain direction of sunlight, it simulates the
+effect of light on the relief map:
+
+#+BEGIN_SRC sh
+gdaldem \
+  hillshade \
+  relief.tiff \
+  hill-relief-shaded.tiff \
+  -z 4 -az 20
+#+END_SRC
+
+The second image is a "color relief" that
+maps certain colors to certain elevations. The =color_relief.txt= file provides
+this information in the format: =elevation r g b=.
+
+#+BEGIN_SRC sh
+gdaldem \
+  color-relief \
+  relief.tiff \
+  color_relief.txt \
+  hill-relief-c.tiff \
+#+END_SRC
+
+These files are combined using the program =hsv_merge.py=:
+
+#+begin_src sh
+hsv_merge.py \
+  hill-relief-c.tiff \
+  hill-relief-shaded.tiff \
+  hill-relief-merged.tiff
+#+end_src
+
+[[http://bl.ocks.org/mjhoy/5301594][More code and information here]], including a rather involved Makefile.
