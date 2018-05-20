@@ -42,7 +42,7 @@ header#home h1 a:hover {
 
 #home #content ul {
   list-style: none;
-  margin: 1em 0;
+  margin: 0 0 1em 0;
   padding: 0;
 }
 #home #content li {
@@ -54,8 +54,17 @@ header#home h1 a:hover {
   font-family: helvetica;
   letter-spacing: 0.1em;
   font-weight: 400;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
 }
-header#home img.si { width: 12px; padding-right: 3px; position: relative; top: 1px; }
+header#home img.si { width: 14px; padding-right: 3px; position: relative; top: 2px; }
+
+header#home .vert-bar {
+  font-size: 0.85em;
+  color: black;
+  position:relative; bottom:1px;
+  padding: 0 2px;
+}
 
 /* content */
 section#content {
@@ -95,4 +104,9 @@ footer#main {
 
 footer#main p {
   margin: 0.5em 0;
+}
+aside {
+  font-family:Helvetica;
+  font-size:0.85em;
+  line-height:1.5em;
 }

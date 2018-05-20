@@ -2,7 +2,8 @@ section#content header h1 {
   letter-spacing: 0;
   text-transform: none;
   font-size: 1em;
-  font-weight: 600;
+  font-weight: 500;
+  margin-top: 2em;
 }
 section#content header h2 {
   margin-top: 0em;

@@ -1,11 +1,14 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Journal (journalRoutes, journalCtx) where
+module Journal (journalRoutes, journalCtx, journalPattern) where
 
 import Hakyll
 import Hakyll.Core.Metadata as M
 import Data.Maybe (fromMaybe)
 import Control.Lens ((<&>))
+
+journalPattern :: Pattern
+journalPattern = "journal/**.org" .||. "journal/**.html"
 
 journalRoutes :: Rules ()
 journalRoutes = do
@@ -14,8 +17,13 @@ journalRoutes = do
     compile $ pandocCompiler
           >>= loadAndApplyTemplate "templates/journal.html" journalCtx
 
+  match "journal/**.html" $ do
+    route $ setExtension "html"
+    compile $ getResourceBody
+          >>= loadAndApplyTemplate "templates/journal.html" journalCtx
+
   -- source code matching: just copy it over
-  match ("journal/**" .&&. complement "journal/**.org") $ version "raw" $ do
+  match ("journal/**" .&&. complement ("journal/**.org" .||. "journal/**.html")) $ version "raw" $ do
     route idRoute
     compile copyFileCompiler
 

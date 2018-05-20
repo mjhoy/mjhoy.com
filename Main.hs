@@ -8,12 +8,14 @@ import Data.Time.Locale.Compat (defaultTimeLocale)
 import Data.Time.Clock (utctDay, UTCTime)
 import Data.Time.Calendar (toGregorian)
 import Data.List (groupBy)
+import Data.Monoid ((<>))
 import Control.Lens ((<&>))
+import Debug.Trace (traceM)
 
 import Static (staticRoutes)
 import Post (postRoutes)
 import Bike (bikeRoutes)
-import Journal (journalRoutes, journalCtx)
+import Journal (journalRoutes, journalCtx, journalPattern)
 import Writings (writingsRoutes)
 
 main :: IO ()
@@ -49,7 +51,7 @@ index :: Rules ()
 index = create ["index.html"] $ do
   route idRoute
   compile $ do
-    entries <- groupByYear =<< recentFirst =<< loadAll "journal/**.org"
+    entries <- groupByYear =<< recentFirst =<< loadAll journalPattern
     let years = traverse makeYearItem entries
     makeItem ""
       >>= loadAndApplyLayout "templates/index.html" (indexContext years)
