@@ -57,13 +57,17 @@ header#banner h1 a {
 header#banner h1 a:hover {
   color: black;
 }
-header#banner img.si { width: 14px; position: relative; top: 2px; }
+header#banner img.si { width: 14px; position: relative; top: 2px; opacity: 0.6; }
+header#banner a:hover img.si { opacity: 1.0; }
 
 header#banner .vert-bar {
   font-size: 0.85em;
-  color: black;
+  color: rgb(182, 182, 182);
   position:relative; bottom:1px;
   padding: 0 2px;
+}
+header#banner .brkt {
+  color: rgb(182, 182, 182);
 }
 
 header.main-header {
