@@ -6,3 +6,4 @@ _site
 deploy
 dist
 .sass-cache
+/dist-newstyle/
