@@ -2,7 +2,7 @@
 
 set -e
 
-cabal build
-./dist/build/blog/blog clean
-./dist/build/blog/blog build
+make clean
+make build
+make site-build
 rsync -avz _site/* SERVER:/PATH/TO/mjhoy.com/public_html/
